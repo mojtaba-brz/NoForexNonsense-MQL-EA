@@ -14,7 +14,7 @@
 
 ## What is this?!
 
-this is a **Metatrader4/5 EA which uses No Nonsense Forex (NNF) strategy (a Complex Trend Following Strategy)** to trade pairs. this is configurable and optimizable so you can tune it by your own or  by using strategy tester.
+this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** to trade pairs. The NNF strategy is a complex trend following strategy. This EA is configurable and optimizable, so you can tune it to your own preferences or by using the strategy tester.
 
 ---
 ## No Nonsense Forex (NNF) Strategy
