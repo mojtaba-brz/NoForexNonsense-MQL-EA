@@ -39,7 +39,7 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 
 ## Diagram
 
-![[NoForexNonsense StateMachine.excalidraw.png]]
+![](./Docs/Excalidraw/NoForexNonsense%20StateMachine.excalidraw.png)
 
 🤔 Need more details? ➡️ [NoNonesenseForex Strategy (NNF)](./docs/NoNonesenseForex%20Strategy%20(NNF).md)
 
