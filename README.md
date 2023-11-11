@@ -30,7 +30,7 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 
 ### Tactics
 
-1. [Scaling Out](https://www.youtube.com/watch?v=tJBmVhefMeE)
+1. [Scaling out](https://www.youtube.com/watch?v=tJBmVhefMeE)
 2. [Use trailing stops at 1.5xATR](https://www.youtube.com/watch?v=Bsc_1GwKINM)
 3. [One Candle Rule](https://www.youtube.com/watch?v=YW2-91DNlIM)
 4. [$EVZ as a Volatility Indication](https://www.youtube.com/watch?v=N8Kbk0cwIWg)
@@ -42,6 +42,7 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 ---
 ## How To Use it?!
 
+Clone the repository into your MetaTrader4/5 ***Shared Projects*** Folder.
 
 
 ### MetaTrader 4
@@ -54,4 +55,9 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 
 
 
+## How does it work?
+
+![[NoForexNonsense StateMachine.excalidraw.png]]
+
+🤔 Need more details? ➡️ [NoNonesenseForex Strategy (NNF)](./docs/NoNonesenseForex%20Strategy%20(NNF).md)
 
