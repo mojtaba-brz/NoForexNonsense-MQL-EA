@@ -9,21 +9,21 @@
 #define add_volume_indicator(indicator_enum_name, indicator_address, indicator_signal_type) indicator_address, 
 
 string ConfirmationIndicatorAddresses[] {
-#include "Table_ConfirmationIndicators.mqh"
+#include "Table_ConfirmationIndicators copy.mqh"
 ""
 };
 
 string BaselineIndicatorAddresses[] {
-#include "Table_BaselineIndicators.mqh"
+#include "Table_BaselineIndicators copy.mqh"
 ""
 };
 
 string ExitIndicatorAddresses[] {
-#include "Table_ExitIndicators.mqh"
+#include "Table_ExitIndicators copy.mqh"
 ""
 };
 
 string VolumeIndicatorAddresses[] {
-#include "Table_VolumeIndicators.mqh"
+#include "Table_VolumeIndicators copy.mqh"
 ""
 };
