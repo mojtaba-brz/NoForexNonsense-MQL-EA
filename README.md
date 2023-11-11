@@ -21,7 +21,7 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 
 ### Main tools of the strategy
 
-1. [**ATR Indicator**](https://www.youtube.com/watch?v=bqWLFNpK6eg) 
+1. [**ATR Indicator**](https://www.youtube.com/watch?v=bqWLFNpK6eg)
 2. [**Baseline**](https://www.youtube.com/watch?v=x_8wfjTLdoY)
 3. **Confirmation Indicator**
 4. [**2nd Confirmation Indicator**](https://www.youtube.com/watch?v=JxUtee7krFc)
@@ -46,13 +46,23 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 ---
 ## How To Use it?!
 
+***Warning :*** *don't apply this EA to a real account until you know what you are doing.*
 
+1. Clone the repository into your MetaTrader 4/5 ***Shared Project*** Folder by **--recursive** flag.
 
 ### MetaTrader 4
 
+2. Double click on indicators/MT4-DoIndicatorsStuff.mq4 in MT4 Terminal
+3. Compile NoForexNonsense-MQL4-EA.mq4 in MT4 Editor
+4. turn AlgoTrade on
+5. Add NoForexNonsense-MQL4-EA your desired chart
 
 ### MetaTrader 5
 
+2. Double click on indicators/MT5-DoIndicatorsStuff.mq4 in MT5 Terminal
+3. Compile NoForexNonsense-MQL5-EA.mq5 in MT5 Editor
+4. turn AlgoTrade on
+5. Add NoForexNonsense-MQL5-EA your desired chart
 
 ## Results
 
