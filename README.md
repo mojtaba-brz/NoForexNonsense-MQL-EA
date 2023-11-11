@@ -49,20 +49,15 @@ this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** 
 ***Warning :*** *don't apply this EA to a real account until you know what you are doing.*
 
 1. Clone the repository into your MetaTrader 4/5 ***Shared Project*** Folder by **--recursive** flag.
+2. turn *Algo Trading* on
 
 ### MetaTrader 4
 
-2. Double click on indicators/MT4-DoIndicatorsStuff.mq4 in MT4 Terminal
-3. Compile NoForexNonsense-MQL4-EA.mq4 in MT4 Editor
-4. turn AlgoTrade on
-5. Add NoForexNonsense-MQL4-EA your desired chart
+3. Add NoForexNonsense-MQL4-EA your desired chart
 
 ### MetaTrader 5
 
-2. Double click on indicators/MT5-DoIndicatorsStuff.mq4 in MT5 Terminal
-3. Compile NoForexNonsense-MQL5-EA.mq5 in MT5 Editor
-4. turn AlgoTrade on
-5. Add NoForexNonsense-MQL5-EA your desired chart
+3. Add NoForexNonsense-MQL5-EA your desired chart
 
 ## Results
 
