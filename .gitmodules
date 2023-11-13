@@ -4,3 +4,6 @@
 [submodule "Libs/MT4-5-IndicatorCollection"]
 	path = Indicators/MT4-5-IndicatorCollection
 	url = git@github.com:mojtaba-brz/MT4-5-IndicatorCollection.git
+[submodule "Libs/MQL-Trading-Lib"]
+	path = Libs/MQL-Trading-Lib
+	url = git@github.com:mojtaba-brz/MQL-Trading-Lib.git

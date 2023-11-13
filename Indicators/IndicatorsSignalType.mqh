@@ -1,5 +1,3 @@
-#include "../Libs/typedefs.mqh"
-
 #undef add_confirmation_indicator
 #undef add_baseline_indicator
 #undef add_exit_indicator
