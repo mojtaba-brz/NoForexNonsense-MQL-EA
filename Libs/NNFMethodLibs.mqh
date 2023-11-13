@@ -14,3 +14,4 @@
 
 // Local Sources and Libs
 #include "IndicatorsBank.mqh"
+#include "../Source/NoForexNonesenseEAClass.mqh"
