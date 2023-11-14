@@ -17,12 +17,26 @@ class CNoForexNonesenseEA
   {
 private:
    // Private functions --------------------------------------------------------------------------------------------------
-   void                 determine_first_confirmation_indicator_signal();
+   void                 determine_first_confirmation_indicator_entry_signal();
    void                 set_confirmation_indicators_handle();
-   ConfirmationSignal   get_confirmation_indicator_signal(int shift = 1);
-   void                 get_confirmation_indicator_current_signal_and_its_index(ConfirmationSignal &current_signal, int &index);
+   ConfirmationSignal   get_first_confirmation_indicator_signal(int shift = 1);
+   ConfirmationSignal   general_signal_to_confirmation_signal(GeneralSignal signal);
+   ConfirmationSignal   get_second_confirmation_indicator_signal(int shift = 1);
+   void                 get_first_confirmation_indicator_current_signal_and_its_index(ConfirmationSignal &current_signal, int &index);
+
+   void                 enter_long_positions_nnf_method();
+   void                 enter_short_positions_nnf_method();
+   void                 close_all_specified_positions();
+   void                 manage_positions_nnf_method();
+   double               get_lot_by_sl_diff_and_risk(int risk_percent = 1);
+   void                 sl_tp_diff_nnf_method();
+   void                 enter_two_positions();
+   void                 manage_the_positions();
    void                 set_current_position_state();
-   void                 handle_the_entry_logic_of_signals();
+
+   void                 handle_position_management_logic();
+   void                 handle_the_entry_logic();
+
 
    // Private Variables --------------------------------------------------------------------------------------------------
    // Class config params
@@ -62,6 +76,7 @@ private:
    EA_Mode                       ea_mode, pre_ea_mode;
    PositionState                 ea_position_state;
    TradingAction                 ea_action;
+   double                        pre_sl, sl_diff, tp_diff;
 
 public:
                      CNoForexNonesenseEA() {}
@@ -81,9 +96,9 @@ public:
                           ENUM_TIMEFRAMES _atr_period = PERIOD_D1,
                           int _atr_scope = 14);
 
-   void              set_params();
-   void              step();
-   void              reset();
+   void              set_params() {}
+   void              on_tick();
+   void              reset() {}
 
    // Output and Report functions ----------------------------------------------------------------------------------------
 
@@ -143,6 +158,11 @@ void CNoForexNonesenseEA::init(string _symbol,
 // Exit Indicator
 //get_exit_indicator_handle(exit_indicator_handle, exit_indicator_idx, main_timeframe);
 
+   use_one_candle_rule = true;
+   use_continuation_trades = true;
+   use_pullbacks = true;
+   use_dollor_evz_as_the_volatility_index = true;
+
    set_current_position_state();
    if(ea_position_state == POS_STATE_NO_POSITION)
      {
@@ -152,13 +172,15 @@ void CNoForexNonesenseEA::init(string _symbol,
      {
       ea_mode = MANAGE_THE_POSITION;
      }
-     pre_ea_mode = ENTER_IN_TWO_POSITIONS;
+   pre_ea_mode = ENTER_IN_TWO_POSITIONS;
+
+   pre_sl = EMPTY_VALUE;
   }
 
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-void CNoForexNonesenseEA::step()
+void CNoForexNonesenseEA::on_tick()
   {
    current_time = (int)current_candle_time_sec(symbol, main_timeframe);
    new_candle = current_time > pre_time;
@@ -166,83 +188,36 @@ void CNoForexNonesenseEA::step()
 
    if(new_candle || mode_changed)
      {
+      pre_ea_mode = ea_mode;
+      
       switch(ea_mode)
         {
-// ===============================================================================================================================
+         // ===============================================================================================================================
          case  WAIT_FOR_ENTRY_SIGNAL:
-            determine_first_confirmation_indicator_signal();
-            handle_the_entry_logic_of_signals();
+            handle_the_entry_logic();
             break;
-// ===============================================================================================================================
-            
+         // ===============================================================================================================================
+
          case ENTER_IN_TWO_POSITIONS:
-            
+            enter_two_positions();
             break;
-// ===============================================================================================================================
-            
+         // ===============================================================================================================================
+
          case MANAGE_THE_POSITION:
-            if(ea_position_state == POS_STATE_NO_POSITION)
-              {
-               pre_sl_aux = EMPTY_VALUE;
-               if(ea_action == TRADING_ACTION_BUY)
-                 {
-                  enter_POS_STATE_LONG_POSITION_nnf_method(Symbol(), robot_magic_number, ATRHanlde);
-                 }
-               else
-                  if(ea_action == TRADING_ACTION_SELL)
-                    {
-                     enter_POS_STATE_SHORT_POSITION_nnf_method(Symbol(), robot_magic_number, ATRHanlde);
-                    }
-
-              }
-            else
-               if(ea_position_state == POS_STATE_LONG_POSITION)
-                 {
-                  if(ea_action == TRADING_ACTION_BUY || ea_action == TRADING_ACTION_DO_NOTHING)
-                    {
-                     manage_positions_nnf_method(Symbol(), robot_magic_number, ATRHanlde, pre_sl_aux);
-                    }
-                  else
-                     if(ea_action == TRADING_ACTION_SELL)
-                       {
-                        close_all_specified_positions(Symbol(), robot_magic_number);
-                        enter_POS_STATE_SHORT_POSITION_nnf_method(Symbol(), robot_magic_number, ATRHanlde);
-                       }
-                     else
-                        if(ea_action == TRADING_ACTION_CLOSE_POSITIONS)
-                          {
-                           close_all_specified_positions(Symbol(), robot_magic_number);
-                          }
-                 }
-               else
-                  if(ea_position_state == POS_STATE_SHORT_POSITION)
-                    {
-                     if(ea_action == TRADING_ACTION_SELL || ea_action == TRADING_ACTION_DO_NOTHING)
-                       {
-                        manage_positions_nnf_method(Symbol(), robot_magic_number, ATRHanlde, pre_sl_aux);
-                       }
-                     else
-                        if(ea_action == TRADING_ACTION_BUY)
-                          {
-                           close_all_specified_positions(Symbol(), robot_magic_number);
-                           enter_POS_STATE_LONG_POSITION_nnf_method(Symbol(), robot_magic_number, ATRHanlde);
-                          }
-                        else
-                           if(ea_action == TRADING_ACTION_CLOSE_POSITIONS)
-                             {
-                              close_all_specified_positions(Symbol(), robot_magic_number);
-                             }
-                    }
-
+            manage_the_positions();
             break;
         }
 
       pre_time = current_time;
-      pre_ea_mode = ea_mode;
      }
 
   }
 
+
+
 #include "ConfirmationIndicator.mqh"
 #include "PositionManagement.mqh"
+#include "RiskManagement.mqh"
+#include "TradeManagement.mqh"
+#include "SignalsLogicHandler.mqh"
 //+------------------------------------------------------------------+

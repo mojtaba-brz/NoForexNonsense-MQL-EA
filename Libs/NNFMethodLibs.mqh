@@ -9,7 +9,6 @@
 // this file include all libraries is needed for "NoForexNonsense MQL EA"
 
 // Submodules
-#include "MQL_Easy/MQL_Easy/MQL_Easy.mqh"
 #include "MQL-Trading-Lib/MQL-Trading-Lib.mqh"
 
 // Local Sources and Libs

@@ -3,10 +3,14 @@
 #undef add_exit_indicator
 #undef add_volume_indicator
 
-#define add_confirmation_indicator(indicator_enum_name, indicator_address, indicator_signal_type) indicator_address,
-#define add_baseline_indicator(indicator_enum_name, indicator_address, indicator_signal_type) indicator_address,
-#define add_exit_indicator(indicator_enum_name, indicator_address, indicator_signal_type) indicator_address,
-#define add_volume_indicator(indicator_enum_name, indicator_address, indicator_signal_type) indicator_address, 
+#define add_confirmation_indicator(indicator_enum_name, indicator_address, indicator_signal_type) \
+"Shared Projects/NoForexNonsense-MQL-EA/Indicators/MT4-5-IndicatorCollection/MT5-Indicators/" + indicator_address,
+#define add_baseline_indicator(indicator_enum_name, indicator_address, indicator_signal_type) \
+"Shared Projects/NoForexNonsense-MQL-EA/Indicators/MT4-5-IndicatorCollection/MT5-Indicators/" +  indicator_address,
+#define add_exit_indicator(indicator_enum_name, indicator_address, indicator_signal_type) \
+"Shared Projects/NoForexNonsense-MQL-EA/Indicators/MT4-5-IndicatorCollection/MT5-Indicators/" +  indicator_address,
+#define add_volume_indicator(indicator_enum_name, indicator_address, indicator_signal_type) \
+"Shared Projects/NoForexNonsense-MQL-EA/Indicators/MT4-5-IndicatorCollection/MT5-Indicators/" +  indicator_address, 
 
 string ConfirmationIndicatorAddresses[] {
 #include "Table_ConfirmationIndicators copy.mqh"

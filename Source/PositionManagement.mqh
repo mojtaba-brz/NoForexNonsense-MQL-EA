@@ -1,27 +1,45 @@
-void CNoForexNonesenseEA::set_current_position_state()
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void CNoForexNonesenseEA::enter_two_positions()
   {
-   CPosition cp(symbol, robot_magic_number);
-
-   if(cp.get_total_specified_positions() == 1)
+   if(ea_action == TRADING_ACTION_BUY)
      {
-      int pos_type = cp.get_position_type();
-      if(pos_type == POSITION_TYPE_BUY)
-        {
-         ea_position_state = POS_STATE_LONG_POSITION;
-        }
-      if(pos_type == POSITION_TYPE_SELL)
-        {
-         ea_position_state = POS_STATE_SHORT_POSITION;
-        }
-      ea_position_state = POS_STATE_NO_POSITION;
+      enter_long_positions_nnf_method();
      }
    else
-      if(cp.get_total_specified_positions() > 1)
+      if(ea_action == TRADING_ACTION_SELL)
         {
-         ea_position_state = POS_STATE_MORE_THAN_ONE_POSITION;
+         enter_short_positions_nnf_method();
         }
-      else
+   ea_mode = MANAGE_THE_POSITION;
+  }
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void CNoForexNonesenseEA::manage_the_positions()
+  {
+
+   handle_position_management_logic();
+   if(ea_action == TRADING_ACTION_MANAGE_POSITIONS || ea_action == TRADING_ACTION_DO_NOTHING)
+     {
+      manage_positions_nnf_method();
+     }
+
+   else
+      if(ea_action == TRADING_ACTION_CLOSE_POSITIONS)
         {
-         ea_position_state = POS_STATE_NO_POSITION;
+         close_all_specified_positions();
+         ea_mode = WAIT_FOR_ENTRY_SIGNAL;
         }
   }
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void CNoForexNonesenseEA::set_current_position_state()
+  {
+   ea_position_state = get_current_position_state(symbol, robot_magic_number);
+  }
+//+------------------------------------------------------------------+
