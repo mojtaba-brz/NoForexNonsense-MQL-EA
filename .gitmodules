@@ -1,6 +1,3 @@
-[submodule "Libs/MQL_Easy"]
-	path = Libs/MQL_Easy
-	url = git@github.com:mojtaba-brz/MQL_Easy.git
 [submodule "Libs/MT4-5-IndicatorCollection"]
 	path = Indicators/MT4-5-IndicatorCollection
 	url = git@github.com:mojtaba-brz/MT4-5-IndicatorCollection.git
