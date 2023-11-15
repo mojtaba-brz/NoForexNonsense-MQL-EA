@@ -1,6 +1,7 @@
 // ==============================================================================================================================
 // ===================================================== Volume indicator =======================================================
 // ==============================================================================================================================
-//                   enum_name,  address,   signal_type(ZERO_CROSS, SLOPE_CHANGE, TWO_LINE_CROSS, CLOSE_PRICE_CROSS)
+// enum_name,  indicator name,   signal_type(ZERO_CROSS, SLOPE_CHANGE, TWO_LINE_CROSS, CLOSE_PRICE_CROSS)
 
-add_volume_indicator(SMA, "", CLOSE_PRICE_CROSS)
+// built in indicators
+SMA, "", CLOSE_PRICE_CROSS

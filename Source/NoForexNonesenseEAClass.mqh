@@ -41,7 +41,7 @@ private:
    // Private Variables --------------------------------------------------------------------------------------------------
    // Class config params
    long                          robot_magic_number;
-   ENUM_TIMEFRAMES               main_timeframe;
+   ENUM_TIMEFRAMES               ea_timeframe;
    string                        symbol;
 
    ENUM_TIMEFRAMES               atr_indicator_period;
@@ -85,7 +85,7 @@ public:
    // Main functions -----------------------------------------------------------------------------------------------------
    void              init(string _symbol,
                           long _robot_magic_number = 1454536879,
-                          ENUM_TIMEFRAMES _main_timeframe = PERIOD_D1,
+                          ENUM_TIMEFRAMES _ea_timeframe = PERIOD_D1,
 
                           BaselineIndicatorIndex _base_line_indicator_idx = NO_BASELINE_INDICATOR,
                           ConfirmationIndicatorIndex _first_confirmation_indicator_idx = CI_SMA,
@@ -121,7 +121,7 @@ void CNoForexNonesenseEA::~CNoForexNonesenseEA()
 //+------------------------------------------------------------------+
 void CNoForexNonesenseEA::init(string _symbol,
                                long _robot_magic_number = 1454536879,
-                               ENUM_TIMEFRAMES _main_timeframe = PERIOD_D1,
+                               ENUM_TIMEFRAMES _ea_timeframe = PERIOD_D1,
 
                                BaselineIndicatorIndex _base_line_indicator_idx = NO_BASELINE_INDICATOR,
                                ConfirmationIndicatorIndex _first_confirmation_indicator_idx = CI_SMA,
@@ -135,7 +135,7 @@ void CNoForexNonesenseEA::init(string _symbol,
    pre_time = 0;
    symbol = _symbol;
    robot_magic_number = _robot_magic_number;
-   main_timeframe     = _main_timeframe;
+   ea_timeframe     = _ea_timeframe;
 
    base_line_indicator_idx = _base_line_indicator_idx;
    first_confirmation_indicator_idx = _first_confirmation_indicator_idx;
@@ -153,10 +153,10 @@ void CNoForexNonesenseEA::init(string _symbol,
    set_confirmation_indicators_handle();
 
 // Baselines
-//get_baseline_indicator_handle(baseline_handle, base_line_indicator_idx, main_timeframe);
+//get_baseline_indicator_handle(baseline_handle, base_line_indicator_idx, ea_timeframe);
 
 // Exit Indicator
-//get_exit_indicator_handle(exit_indicator_handle, exit_indicator_idx, main_timeframe);
+//get_exit_indicator_handle(exit_indicator_handle, exit_indicator_idx, ea_timeframe);
 
    use_one_candle_rule = true;
    use_continuation_trades = true;
@@ -182,7 +182,7 @@ void CNoForexNonesenseEA::init(string _symbol,
 //+------------------------------------------------------------------+
 void CNoForexNonesenseEA::on_tick()
   {
-   current_time = (int)current_candle_time_sec(symbol, main_timeframe);
+   current_time = (int)current_candle_time_sec(symbol, ea_timeframe);
    new_candle = current_time > pre_time;
    mode_changed = pre_ea_mode != ea_mode;
 

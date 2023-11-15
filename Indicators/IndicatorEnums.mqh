@@ -1,29 +1,49 @@
-#undef add_confirmation_indicator
-#undef add_baseline_indicator
-#undef add_exit_indicator
-#undef add_volume_indicator
-
-#define add_confirmation_indicator(indicator_enum_name, indicator_address, indicator_signal_type) CI_##indicator_enum_name,
-#define add_baseline_indicator(indicator_enum_name, indicator_address, indicator_signal_type) BI_##indicator_enum_name,
-#define add_exit_indicator(indicator_enum_name, indicator_address, indicator_signal_type) EI_##indicator_enum_name,
-#define add_volume_indicator(indicator_enum_name, indicator_address, indicator_signal_type) VI_##indicator_enum_name, 
-
-enum ConfirmationIndicatorIndex {
-#include "Table_ConfirmationIndicators.mqh"
-NO_CONFIRMATION_INDICATOR
-};
-
-enum BaselineIndicatorIndex {
-#include "Table_BaselineIndicators.mqh"
-NO_BASELINE_INDICATOR
-};
-
-enum ExitIndicatorIndex {
-#include "Table_ExitIndicators.mqh"
-NO_EXIT_INDICATOR
-};
-
-enum VolumeIndicatorIndex {
-#include "Table_VolumeIndicators.mqh"
-NO_VOLUME_INDICATOR
-};
+enum ConfirmationIndicatorIndex { 
+ CI_T3, 
+ CI_STC, 
+ CI_FractalTrendID, 
+ CI_ASI_V2, 
+ CI_Adaptive_laguerre_filter, 
+ CI_ALMA_V2, 
+ CI_BBI, 
+ CI_BT3ECO, 
+ CI_Coppock, 
+ CI_CoralIndicator, 
+ CI_DidiIndex, 
+ CI_dinapolistochastic, 
+ CI_EFisherTI, 
+ CI_fantailvma2, 
+ CI_FTT, 
+ CI_FTZ, 
+ CI_Half_Trend_New_Alert, 
+ CI_j_tpo, 
+ CI_KF, 
+ CI_KAMA, 
+ CI_Klinger_Oscillator, 
+ CI_laguerre, 
+ CI_McGinley_dynamic, 
+ CI_NV, 
+ CI_PM, 
+ CI_SmoothStep, 
+ CI_supertrend, 
+ CI_AO, 
+ CI_AC, 
+ CI_SMA, 
+NO_CONFIRMATION_INDICATOR 
+}; 
+ 
+enum BaselineIndicatorIndex { 
+ BI_SMA, 
+NO_BASELINE_INDICATOR 
+}; 
+ 
+enum VolumeIndicatorIndex { 
+ VI_SMA, 
+NO_VOLUME_INDICATOR 
+}; 
+ 
+enum ExitIndicatorIndex { 
+ EI_SMA, 
+NO_EXIT_INDICATOR 
+}; 
+ 

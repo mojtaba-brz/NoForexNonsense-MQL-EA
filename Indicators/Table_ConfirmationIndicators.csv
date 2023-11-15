@@ -1,0 +1,37 @@
+// ==============================================================================================================================
+// ========================================== Table of confirmation indicators ==================================================
+// ==============================================================================================================================
+// enum_name,  indicator name,   signal_type(ZERO_CROSS, SLOPE_CHANGE, TWO_LINE_CROSS, CLOSE_PRICE_CROSS)
+
+T3, "T3", CLOSE_PRICE_CROSS
+STC, "Schaff Trend Cycle", SLOPE_CHANGE
+FractalTrendID, "FractalTrendID", ZERO_CROSS
+ASI_V2, "absolutestrength_v2", TWO_LINE_CROSS
+Adaptive_laguerre_filter, "Adaptive_laguerre_filter_mclassical5", SLOPE_CHANGE
+ALMA_V2, "alma_v2", CLOSE_PRICE_CROSS
+BBI, "Bears_Bulls_Impuls", TWO_LINE_CROSS
+BT3ECO, "Blau_-_T3_ergodic_candlestick_oscillator_1.02", ZERO_CROSS
+Coppock, "Coppock", ZERO_CROSS
+CoralIndicator, "Coral", SLOPE_CHANGE
+DidiIndex, "DidiIndex", TWO_LINE_CROSS
+dinapolistochastic, "dinapolistochastic", TWO_LINE_CROSS
+EFisherTI, "EhlersFisherTransformIndicator", SLOPE_CHANGE
+fantailvma2, "fantailvma2", CLOSE_PRICE_CROSS
+FTT, "fishertransform", TWO_LINE_CROSS
+FTZ, "fishertransform", ZERO_CROSS
+Half_Trend_New_Alert, "Half Trend New Alert", SLOPE_CHANGE
+j_tpo, "j_tpo", ZERO_CROSS
+KF, "Kalman filter (generalized", CLOSE_PRICE_CROSS
+KAMA, "KAMA", CLOSE_PRICE_CROSS
+Klinger_Oscillator, "Klinger_Oscillator", ZERO_CROSS
+laguerre, "laguerre", ZERO_CROSS
+McGinley_dynamic, "McGinley dynamic average (official", SLOPE_CHANGE
+NV, "normalizedvolume", ZERO_CROSS
+PM, "Polychromatic momentum", ZERO_CROSS
+SmoothStep, "SmoothStep", ZERO_CROSS
+supertrend, "supertrend", TWO_LINE_CROSS
+
+// built-in indicators
+AO, "", SLOPE_CHANGE
+AC, "", ZERO_CROSS
+SMA, "", CLOSE_PRICE_CROSS

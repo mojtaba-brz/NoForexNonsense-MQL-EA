@@ -12,7 +12,7 @@ BaselineSignal get_baseline_signal(string sym, int &handle, BaselineIndicatorInd
   {
    if(handle < 0) return NO_BASE_LINE;
    double last_baseline = get_indicator_value_by_handle(handle);
-   double last_close = iClose(sym, PERIOD_CURRENT, 1);
+   double last_close = iClose(sym, ea_timeframe, 1);
    double last_atr   = get_indicator_value_by_handle(atr_handle);
 
    if(MathAbs(last_close - last_baseline) > last_atr) return CLOSE_IS_TOO_FAR;

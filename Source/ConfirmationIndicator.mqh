@@ -20,8 +20,8 @@ void CNoForexNonesenseEA::determine_first_confirmation_indicator_entry_signal()
    if(use_one_candle_rule)
      {
       last_atr_value = get_indicator_value_by_handle(atr_indicator_handle, 1);
-      last_close = iClose(symbol, PERIOD_CURRENT, 1);
-      close_at_signal_index = iClose(symbol, PERIOD_CURRENT, signal_index);
+      last_close = iClose(symbol, ea_timeframe, 1);
+      close_at_signal_index = iClose(symbol, ea_timeframe, signal_index);
 
       switch(signal)
         {
@@ -66,19 +66,19 @@ void CNoForexNonesenseEA::set_confirmation_indicators_handle()
          break;
 
       case CI_AO:
-         first_confirmation_indicator_handle = iAO(Symbol(), main_timeframe);
+         first_confirmation_indicator_handle = iAO(Symbol(), ea_timeframe);
          break;
 
       case CI_AC:
-         first_confirmation_indicator_handle = iAC(Symbol(), main_timeframe);
+         first_confirmation_indicator_handle = iAC(Symbol(), ea_timeframe);
          break;
 
       case CI_SMA:
-         first_confirmation_indicator_handle = iMA(Symbol(), main_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         first_confirmation_indicator_handle = iMA(Symbol(), ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         first_confirmation_indicator_handle = iCustom(Symbol(), main_timeframe, ConfirmationIndicatorAddresses[first_confirmation_indicator_idx]);
+         first_confirmation_indicator_handle = iCustom(Symbol(), ea_timeframe, ConfirmationIndicatorAddresses[first_confirmation_indicator_idx]);
          break;
      }
      
@@ -89,19 +89,19 @@ void CNoForexNonesenseEA::set_confirmation_indicators_handle()
          break;
 
       case CI_AO:
-         second_confirmation_indicator_handle = iAO(Symbol(), main_timeframe);
+         second_confirmation_indicator_handle = iAO(Symbol(), ea_timeframe);
          break;
 
       case CI_AC:
-         second_confirmation_indicator_handle = iAC(Symbol(), main_timeframe);
+         second_confirmation_indicator_handle = iAC(Symbol(), ea_timeframe);
          break;
 
       case CI_SMA:
-         second_confirmation_indicator_handle = iMA(Symbol(), main_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         second_confirmation_indicator_handle = iMA(Symbol(), ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         second_confirmation_indicator_handle = iCustom(Symbol(), main_timeframe, ConfirmationIndicatorAddresses[second_confirmation_indicator_idx]);
+         second_confirmation_indicator_handle = iCustom(Symbol(), ea_timeframe, ConfirmationIndicatorAddresses[second_confirmation_indicator_idx]);
          break;
      }
   }
@@ -124,7 +124,7 @@ ConfirmationSignal CNoForexNonesenseEA::get_first_confirmation_indicator_signal(
          signal = get_two_line_cross_general_signal(first_confirmation_indicator_handle, shift);
          break;
       case  INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS:
-         signal = get_close_price_cross_general_signal(symbol, first_confirmation_indicator_handle, shift);
+         signal = get_close_price_cross_general_signal(symbol, first_confirmation_indicator_handle, ea_timeframe, shift);
          break;
 
       case  INDICATOR_SIGNAL_TYPE_DUMMY:
@@ -150,7 +150,7 @@ ConfirmationSignal CNoForexNonesenseEA::get_second_confirmation_indicator_signal
          signal = get_two_line_cross_general_signal(second_confirmation_indicator_handle, shift);
          break;
       case  INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS:
-         signal = get_close_price_cross_general_signal(symbol, second_confirmation_indicator_handle, shift);
+         signal = get_close_price_cross_general_signal(symbol, second_confirmation_indicator_handle, ea_timeframe, shift);
          break;
 
       case  INDICATOR_SIGNAL_TYPE_DUMMY:
