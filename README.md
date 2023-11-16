@@ -22,9 +22,8 @@ this is a **Metatrader4/5 EA** which uses **[No Nonsense Forex (NNF) strategy](#
 ### Windows 
 
 1. Clone the repository into your MetaTrader 4/5 ***Shared Project*** Folder by **--recursive** flag.
-2. Open *MetaEditor* and double click on **Indicators stuffs handler.bat**. it compiles predefined indicators and move to Indicators main folder.
-3. Open **NoForexNonsense-MQL-EA.mq5** in *MetaEditor* and it the *Compile* button.
-4. Now you find th EA in *Expert/Shared Folder/NoForexNonesense-MQL-EA* directory in *MetaTrader*.
+2. Open *MetaEditor* and double click on **CompileAutomator.bat**. it compiles predefined indicators and the EA, then moves them to their main folders.
+3. Now you find the EA in *Expert/Shared Folder/NoForexNonesense-MQL-EA* directory in *MetaTrader*.
 
 ### Mac
 Comming soon!

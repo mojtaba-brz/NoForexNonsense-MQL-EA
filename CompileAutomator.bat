@@ -188,7 +188,17 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
 @echo }; >> !signals_file!
 @echo. >> !signals_file!
 
-cls
+echo Compiling the EA. please wait...
+for %%f in ("*EA.mq5") do (
+    "%MetaEditorApp%" /compile:"%%f"
+)
+for %%f in ("*EA.mq4") do (
+    "%MetaEditorApp%" /compile:"%%f"
+)
+move "*.ex4" "../../Expert/"
+move "*.ex5" "../../Expert/"
+
+
 echo.
 echo.
 echo ***************************************************
