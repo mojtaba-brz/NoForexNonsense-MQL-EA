@@ -46,6 +46,7 @@ private:
    void                 handle_position_management_logic();
    void                 handle_the_entry_logic();
    void                 update_all_indicator_signals_for_entry();
+   void                 update_all_indicator_signals_for_position_management();
 
 
    // Private Variables --------------------------------------------------------------------------------------------------
