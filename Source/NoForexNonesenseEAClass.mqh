@@ -21,8 +21,11 @@ private:
    void                 set_confirmation_indicators_handle();
    ConfirmationSignal   get_first_confirmation_indicator_signal(int shift = 1);
    ConfirmationSignal   general_signal_to_confirmation_signal(GeneralSignal signal);
-   ConfirmationSignal   get_second_confirmation_indicator_signal(int shift = 1);
+   void                 set_second_confirmation_indicator_signal(int shift = 1);
    void                 get_first_confirmation_indicator_current_signal_and_its_index(ConfirmationSignal &current_signal, int &index);
+
+   ExitSignal           get_exit_indicator_signal(int shift = 1);
+   void                 set_exit_indicator_handle();
 
    void                 enter_long_positions_nnf_method();
    void                 enter_short_positions_nnf_method();
@@ -64,6 +67,7 @@ private:
 
    ExitIndicatorIndex            exit_indicator_idx;
    int                           exit_indicator_handle;
+   ExitSignal                    exit_indicator_signal;
 
    bool                          use_one_candle_rule;
    bool                          use_continuation_trades;
@@ -156,7 +160,7 @@ void CNoForexNonesenseEA::init(string _symbol,
 //get_baseline_indicator_handle(baseline_handle, base_line_indicator_idx, ea_timeframe);
 
 // Exit Indicator
-//get_exit_indicator_handle(exit_indicator_handle, exit_indicator_idx, ea_timeframe);
+   set_exit_indicator_handle();
 
    use_one_candle_rule = true;
    use_continuation_trades = true;
@@ -172,7 +176,7 @@ void CNoForexNonesenseEA::init(string _symbol,
      {
       ea_mode = MANAGE_THE_POSITION;
      }
-   pre_ea_mode = ENTER_IN_TWO_POSITIONS;
+   pre_ea_mode = EXECUTE_TWO_MARKET_ORDER;
 
    pre_sl = EMPTY_VALUE;
   }
@@ -198,7 +202,7 @@ void CNoForexNonesenseEA::on_tick()
             break;
          // ===============================================================================================================================
 
-         case ENTER_IN_TWO_POSITIONS:
+         case EXECUTE_TWO_MARKET_ORDER:
             enter_two_positions();
             break;
          // ===============================================================================================================================
@@ -216,6 +220,7 @@ void CNoForexNonesenseEA::on_tick()
 
 
 #include "ConfirmationIndicator.mqh"
+#include "ExitIndicator.mqh"
 #include "PositionManagement.mqh"
 #include "RiskManagement.mqh"
 #include "TradeManagement.mqh"

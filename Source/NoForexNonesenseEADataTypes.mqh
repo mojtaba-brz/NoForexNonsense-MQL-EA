@@ -7,6 +7,13 @@
 #property description "Email : mojtababahrami147@gmail.com"
 #property copyright "MIT"
 
+enum EA_Mode
+{
+    WAIT_FOR_ENTRY_SIGNAL,
+    EXECUTE_TWO_MARKET_ORDER,
+    MANAGE_THE_POSITION
+};
+
 enum ConfirmationSignal
 {
     CI_NO_INDICATOR_SIGNAL,
@@ -15,9 +22,9 @@ enum ConfirmationSignal
     CI_NO_SIGNAL
 };
 
-enum EA_Mode
-{
-    WAIT_FOR_ENTRY_SIGNAL,
-    ENTER_IN_TWO_POSITIONS,
-    MANAGE_THE_POSITION
-};
+enum ExitSignal
+  {
+   EI_NO_SIGNAL,
+   EI_SAFE_TO_BUY,
+   EI_SAFE_TO_SELL
+  };

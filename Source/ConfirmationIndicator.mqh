@@ -135,7 +135,7 @@ ConfirmationSignal CNoForexNonesenseEA::get_first_confirmation_indicator_signal(
    return general_signal_to_confirmation_signal(signal);
   }
 
-ConfirmationSignal CNoForexNonesenseEA::get_second_confirmation_indicator_signal(int shift = 1)
+void CNoForexNonesenseEA::set_second_confirmation_indicator_signal(int shift = 1)
   {
    GeneralSignal signal;
    switch(ConfirmationIndicatorSignalType[second_confirmation_indicator_idx])
@@ -155,10 +155,10 @@ ConfirmationSignal CNoForexNonesenseEA::get_second_confirmation_indicator_signal
 
       case  INDICATOR_SIGNAL_TYPE_DUMMY:
       default:
-         return CI_NO_INDICATOR_SIGNAL;
+         signal = NO_INDICATOR;
      }
 
-   return general_signal_to_confirmation_signal(signal);
+   last_second_confirmation_indicator_signal = general_signal_to_confirmation_signal(signal);
   }
 
 //+------------------------------------------------------------------+

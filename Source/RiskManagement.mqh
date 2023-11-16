@@ -9,7 +9,7 @@ double CNoForexNonesenseEA::get_lot_by_sl_diff_and_risk(int risk_percent = 1)
 
    double lot = (equity * risk_percent*0.01)/
                 (100000*sl_diff*currency_base_in_dollar(symbol));
-
+   lot = MathMax(lot, 0.01);
    return MathRound(lot, 2);
   }
 

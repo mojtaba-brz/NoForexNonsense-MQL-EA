@@ -11,21 +11,37 @@
 // generates do nothing, buy and sell signal
 void CNoForexNonesenseEA::handle_the_entry_logic()
   {
+    bool exit_indicator_sell_signal, exit_indicator_buy_signal;
 
    determine_first_confirmation_indicator_entry_signal();
-   if(last_first_confirmation_indicator_signal == CI_BUY_SIGNAL)
+   
+   switch(last_first_confirmation_indicator_signal)
      {
-      ea_mode = ENTER_IN_TWO_POSITIONS;
-      ea_action = TRADING_ACTION_BUY;
+      case CI_BUY_SIGNAL:
+
+         exit_indicator_signal = get_exit_indicator_signal();
+         exit_indicator_buy_signal = exit_indicator_signal == EI_SAFE_TO_BUY || exit_indicator_signal == EI_NO_SIGNAL;
+
+         if(exit_indicator_buy_signal){
+               ea_mode = EXECUTE_TWO_MARKET_ORDER;
+               ea_action = TRADING_ACTION_BUY;
+         }
+         break;
+
+      case CI_SELL_SIGNAL:
+
+         exit_indicator_signal = get_exit_indicator_signal();
+         exit_indicator_sell_signal = exit_indicator_signal == EI_SAFE_TO_SELL || exit_indicator_signal == EI_NO_SIGNAL;
+
+         if(exit_indicator_buy_signal){
+               ea_mode = EXECUTE_TWO_MARKET_ORDER;
+               ea_action = TRADING_ACTION_SELL;
+         }
+         break;
+
+      default:
+         break;
      }
-
-   else
-      if(last_first_confirmation_indicator_signal == CI_SELL_SIGNAL)
-        {
-         ea_mode = ENTER_IN_TWO_POSITIONS;
-         ea_action = TRADING_ACTION_SELL;
-        }
-
   }
 
 // generates close all and do nothing signal
@@ -46,9 +62,10 @@ void CNoForexNonesenseEA::handle_position_management_logic()
            {
             ea_action = TRADING_ACTION_CLOSE_POSITIONS;
            }
-          else {
+         else
+           {
             ea_action = TRADING_ACTION_MANAGE_POSITIONS;
-          }
+           }
          break;
 
       case POS_STATE_SHORT_POSITION:
@@ -56,9 +73,10 @@ void CNoForexNonesenseEA::handle_position_management_logic()
            {
             ea_action = TRADING_ACTION_CLOSE_POSITIONS;
            }
-          else {
+         else
+           {
             ea_action = TRADING_ACTION_MANAGE_POSITIONS;
-          }
+           }
          break;
 
       default:
