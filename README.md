@@ -14,53 +14,50 @@
 
 ## What is this?!
 
-this is a **Metatrader4/5 EA** which uses **No Nonsense Forex (NNF) strategy** to trade pairs. The NNF strategy is a complex trend following strategy. This EA is configurable and optimizable, so you can tune it to your own preferences or by using the strategy tester.
+this is a **Metatrader4/5 EA** which uses **[No Nonsense Forex (NNF) strategy](#no-nonsense-forex-nnf-strategy)** to trade pairs. The NNF strategy is a complex trend following strategy. This EA is configurable and optimizable, so you can tune it to your own preferences or by using the strategy tester.
+
+---
+
+## How To Use it?!
+
+***Warning :*** *don't apply this EA to a real account until you know what you are doing.*
+
+### Windows 
+
+1. Clone the repository into your MetaTrader 4/5 ***Shared Project*** Folder by **--recursive** flag.
+2. Open *MetaEditor* and double click on **Indicators stuffs handler.bat**. it compiles predefined indicators and move to Indicators main folder.
+3. Open **NoForexNonsense-MQL-EA.mq5** in *MetaEditor* and it the *Compile* button.
+4. Now you find th EA in *Expert/Shared Folder/NoForexNonesense-MQL-EA* directory in *MetaTrader*.
+
+### Mac
+Comming soon!
 
 ---
 ## No Nonsense Forex (NNF) Strategy
 
 ### Main tools of the strategy
-
-1. [**ATR Indicator**](https://www.youtube.com/watch?v=bqWLFNpK6eg)
-2. [**Baseline**](https://www.youtube.com/watch?v=x_8wfjTLdoY)
+1. **ATR Indicator**
+2. **Baseline**
 3. **Confirmation Indicator**
-4. [**2nd Confirmation Indicator**](https://www.youtube.com/watch?v=JxUtee7krFc)
-5. [**Volume (Volatility) Indicator**](https://www.youtube.com/watch?v=NWqbmPC3bD8&t=57s)
-6. [**Exit Indicator**](https://www.youtube.com/watch?v=1b3D1gNUyiw)
+4. **2nd Confirmation Indicator**
+5. **Volume (Volatility) Indicator**
+6. **Exit Indicator**
 
 ### Tactics
+1. Scaling Out
+2. Use trailing stops at 1.5xATR
+3. One Candle Rule
+4. $EVZ as a Volatility Indication
+5. Pullbacks
+6. Continuation Trades
 
-1. [Scaling Out](https://www.youtube.com/watch?v=tJBmVhefMeE)
-2. [Use trailing stops at 1.5xATR](https://www.youtube.com/watch?v=Bsc_1GwKINM)
-3. [One Candle Rule](https://www.youtube.com/watch?v=YW2-91DNlIM)
-4. [$EVZ as a Volatility Indication](https://www.youtube.com/watch?v=N8Kbk0cwIWg)
-5. [Pullbacks](https://www.youtube.com/watch?v=JssEr6mopDc)
-6. [Continuation Trades](https://www.youtube.com/watch?v=0SFM5t_XjwQ)
+🤔 **Need more details? ➡️ [NoNonesenseForex Strategy (NNF) Summary](./Docs/NoNonesenseForex%20Strategy%20(NNF).md)**
 
 ## Diagram
 
 ![](./Docs/Excalidraw/NoForexNonsense%20StateMachine.excalidraw.png)
 
-🤔 Need more details? ➡️ [NoNonesenseForex Strategy (NNF)](./Docs/NoNonesenseForex%20Strategy%20(NNF).md)
 
 ---
-## How To Use it?!
-
-***Warning :*** *don't apply this EA to a real account until you know what you are doing.*
-
-1. Clone the repository into your MetaTrader 4/5 ***Shared Project*** Folder by **--recursive** flag.
-2. turn *Algo Trading* on
-
-### MetaTrader 4
-
-3. Add NoForexNonsense-MQL4-EA your desired chart
-
-### MetaTrader 5
-
-3. Add NoForexNonsense-MQL5-EA your desired chart
-
-## Results
-
-
 
 

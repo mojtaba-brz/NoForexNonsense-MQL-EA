@@ -2,13 +2,13 @@
 
 ## Main Tools Of The Strategy
 
-1. [**ATR Indicator**](https://www.youtube.com/watch?v=bqWLFNpK6eg) 
+1. **ATR Indicator**
 	* This tool is used **to determine the Stop Loss (SL) and Take Profit (TP) levels**. The SL is set at 1.5 times the ATR, and the first TP is set at 1 times the ATR.
 	* It is also used for **money management**, which is the most important part of a trading strategy.
 	* For more details see this [video](https://www.youtube.com/watch?v=bqWLFNpK6eg)
 	* To learn about the NNF money management method, see this [playlist](https://www.youtube.com/playlist?list=PLPqWQo6-TXfE8G_Mmxow0znSSoWTu44e7)
 
-2. [**Baseline**](https://www.youtube.com/watch?v=x_8wfjTLdoY)
+2. **Baseline**
 	* This tool generates safe-to-buy/sell signals.
 	* The [One Candle Rule](#tactics) does not apply.
 	* A good baseline will add wins, eliminate losses and mitigate losses
@@ -22,7 +22,7 @@
 			2. Cross-over Indicator (Cross over/under is a buy/sell signal)
 			3. Chart Indicator (if candle closed above/below the indicator, it is a buy/sell signal)
 
-4. [**2nd Confirmation Indicator**](https://www.youtube.com/watch?v=JxUtee7krFc)
+4. **2nd Confirmation Indicator**
 	* This tool generates *safe to buy/sell* signals
 	* There are three types of them:
 			1. Value Cross indicator (usually it is a zero cross indicator. cross up/down is a *safe to buy/sell* signal)
@@ -30,15 +30,15 @@
 			3. Chart Indicator (if candle closed above/below the indicator, it is a *safe to buy/sell* signal)
 	* see this [video](https://www.youtube.com/watch?v=JxUtee7krFc) for more details
 
-5. [**Volume (Volatility) Indicator**](https://www.youtube.com/watch?v=NWqbmPC3bD8&t=57s)
+5. **Volume (Volatility) Indicator**
 	* Generates *safe to enter* or *safe to buy/sell* signals
 	* This Indicator should show you if the **Trend** have enough **Strength**
 	* There are two types of them:
-			1. Value Cross indicator (usually it is a zero cross indicator. cross up/down is a *safe to enter* or *safe to buy/sell* signal)
+			1. Value Cross indicator (usually it is a zero cross indicator. cross up/down is a *safe to enter* or a *safe to buy/sell* signal)
 			2. Cross-over Indicator (Cross over/under is a *safe to enter* or *safe to buy/sell* signal)
 	* For more details see this [video](https://www.youtube.com/watch?v=NWqbmPC3bD8&t=57s) and [this one](https://www.youtube.com/watch?v=N8Kbk0cwIWg) 
 
-6. [**Exit Indicator**](https://www.youtube.com/watch?v=1b3D1gNUyiw)
+6. **Exit Indicator**
 	* This tool generates *safe to be in buy/sell* or *close short/long position* signals
 	* Gets you out at the most optimal point on a winning trade, and before it hits your TS
 	* Gets you out of a loss before it hits your SL
