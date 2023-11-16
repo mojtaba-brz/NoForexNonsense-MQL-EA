@@ -189,7 +189,7 @@ void CNoForexNonesenseEA::on_tick()
    if(new_candle || mode_changed)
      {
       pre_ea_mode = ea_mode;
-      
+
       switch(ea_mode)
         {
          // ===============================================================================================================================

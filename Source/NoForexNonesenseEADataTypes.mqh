@@ -9,10 +9,10 @@
 
 enum ConfirmationSignal
 {
-    CI_BUY_SIGNAL = 0,
-    CI_SELL_SIGNAL = 1,
-    CI_NO_SIGNAL = 2,
-    CI_NO_INDICATOR_SIGNAL = 4
+    CI_NO_INDICATOR_SIGNAL,
+    CI_BUY_SIGNAL,
+    CI_SELL_SIGNAL,
+    CI_NO_SIGNAL
 };
 
 enum EA_Mode

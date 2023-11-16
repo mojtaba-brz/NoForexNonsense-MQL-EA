@@ -169,6 +169,7 @@ void CNoForexNonesenseEA::get_first_confirmation_indicator_current_signal_and_it
    current_signal = get_first_confirmation_indicator_signal();
    ConfirmationSignal pre_signal = current_signal;
    index = 1;
+   if(current_signal == CI_NO_SIGNAL || current_signal == CI_NO_INDICATOR_SIGNAL) return;
    while(pre_signal == current_signal)
      {
       index++;

@@ -21,11 +21,11 @@ FTT, "fishertransform", TWO_LINE_CROSS
 FTZ, "fishertransform", ZERO_CROSS
 Half_Trend_New_Alert, "Half Trend New Alert", SLOPE_CHANGE
 j_tpo, "j_tpo", ZERO_CROSS
-KF, "Kalman filter (generalized", CLOSE_PRICE_CROSS
+KF, "Kalman filter (generalized)", CLOSE_PRICE_CROSS
 KAMA, "KAMA", CLOSE_PRICE_CROSS
 Klinger_Oscillator, "Klinger_Oscillator", ZERO_CROSS
 laguerre, "laguerre", ZERO_CROSS
-McGinley_dynamic, "McGinley dynamic average (official", SLOPE_CHANGE
+McGinley_dynamic, "McGinley dynamic average (official)", SLOPE_CHANGE
 NV, "normalizedvolume", ZERO_CROSS
 PM, "Polychromatic momentum", ZERO_CROSS
 SmoothStep, "SmoothStep", ZERO_CROSS
