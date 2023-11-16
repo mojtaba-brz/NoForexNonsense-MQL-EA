@@ -55,7 +55,7 @@
 * [Use trailing stops at 1.5xATR](https://www.youtube.com/watch?v=Bsc_1GwKINM)
 * [One Candle Rule](https://www.youtube.com/watch?v=YW2-91DNlIM) : when there is a buy/sell signal, but other tools say it is not safe, you have to wait. after getting the green light, if price went up/down the same amount of ATR from where buy/sell signals had been generated, the buy/sell signal is not valid anymore.
 * [$EVZ as a Volatility Indication](https://www.youtube.com/watch?v=N8Kbk0cwIWg) : 
-	1. go to this [link](https://www.barchart.com/stocks/quotes/$EVZ/overview)
+	1. go to [barchart.com/stocks/quotes/$EVZ](https://www.barchart.com/stocks/quotes/$EVZ/overview)
 	2. if $EVZ >  8 then it is safe to trade
 * [Pullbacks](https://www.youtube.com/watch?v=JssEr6mopDc) : 
 	1. after getting the green light to enter, if price is 1 x ATR or more from your baseline, do not enter. 
