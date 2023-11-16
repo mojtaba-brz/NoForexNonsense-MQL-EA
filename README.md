@@ -1,16 +1,13 @@
 # NoForexNonsense-MQL-EA
 
-## Table of contents
-
 - [What is this?!](#what-is-this)
+- [How To Use it?!](#how-to-use-it)
+	- [Windows](#windows)
+	- [Mac](#mac)
 - [No Nonsense Forex (NNF) Strategy](#no-nonsense-forex-nnf-strategy)
 	- [Main tools of the strategy](#main-tools-of-the-strategy)
 	- [Tactics](#tactics)
-	- [NNF strategy references](#nnf-strategy-references)
-- [How To Use it?!](#how-to-use-it)
-	- [MetaTrader 4](#metatrader-4)
-	- [MetaTrader 5](#metatrader-5)
-- [Results](#results)
+- [Diagram](#diagram)
 
 ## What is this?!
 
