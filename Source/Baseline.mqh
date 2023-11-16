@@ -1,59 +1,45 @@
-#include "../../Libs/NNFMethodLibs.mqh"
-
-enum BaselineSignal
-{
-    CLOSE_IS_TOO_FAR = -1,
-    BUY_ALLOWED = 0,
-    SELL_ALLOWED = 1,
-    NO_BASE_LINE = 2
-};
-
-BaselineSignal get_baseline_signal(string sym, int &handle, BaselineIndicatorIndex idx, int &atr_handle)
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+BaselineSignal CNoForexNonesenseEA::get_baseline_signal()
   {
-   if(handle < 0) return NO_BASE_LINE;
-   double last_baseline = get_indicator_value_by_handle(handle);
-   double last_close = iClose(sym, ea_timeframe, 1);
-   double last_atr   = get_indicator_value_by_handle(atr_handle);
+   if(baseline_indicator_handle < 0)
+      return BI_NO_SIGNAL;
 
-   if(MathAbs(last_close - last_baseline) > last_atr) return CLOSE_IS_TOO_FAR;
-   else if (last_close < last_baseline) return SELL_ALLOWED;
-   else return BUY_ALLOWED;
-   
+   double last_baseline = get_indicator_value_by_handle(baseline_indicator_handle);
+   double last_close = iClose(symbol, ea_timeframe, 1);
+   double last_atr   = get_indicator_value_by_handle(atr_indicator_handle);
+
+   if(MathAbs(last_close - last_baseline) > last_atr)
+      return BI_CLOSE_IS_TOO_FAR_SIGNAL;
+   else
+      if(last_close < last_baseline)
+         return BI_SAFE_TO_SELL;
+      else
+         return BI_SAFE_TO_BUY;
+
   }
 
-  void get_baseline_indicator_handle(int &handle, BaselineIndicatorIndex idx, ENUM_TIMEFRAMES timeframe)
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void CNoForexNonesenseEA::set_baseline_indicator_handle()
   {
-   switch(idx)
+   switch(base_line_indicator_idx)
      {
-      case  NO_BASELINE_INDICATOR:
-         handle = -1;
+      case NO_BASELINE_INDICATOR:
+         baseline_indicator_handle = -1;
+         break;
 
       case BI_SMA:
-         handle = iMA(Symbol(), timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         baseline_indicator_handle = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         handle = iCustom(Symbol(), timeframe, BaselineIndicatorAddresses[idx]);
+         baseline_indicator_handle = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx]);
          break;
      }
 
   }
-
-    
-  void get_exit_indicator_handle(int &handle, ExitIndicatorIndex idx, ENUM_TIMEFRAMES timeframe)
-  {
-   switch(idx)
-     {
-      case  NO_EXIT_INDICATOR:
-         handle = -1;
-
-      case EI_SMA:
-         handle = iMA(Symbol(), timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
-         break;
-
-      default:
-         handle = iCustom(Symbol(), timeframe, ExitIndicatorAddresses[idx]);
-         break;
-     }
-
-  }
+//+------------------------------------------------------------------+

@@ -8,19 +8,27 @@
 #property copyright "MIT"
 
 enum EA_Mode
-{
-    WAIT_FOR_ENTRY_SIGNAL,
-    EXECUTE_TWO_MARKET_ORDER,
-    MANAGE_THE_POSITION
-};
+  {
+   WAIT_FOR_ENTRY_SIGNAL,
+   EXECUTE_TWO_MARKET_ORDER,
+   MANAGE_THE_POSITION
+  };
+
+enum BaselineSignal
+  {
+   BI_NO_SIGNAL,
+   BI_CLOSE_IS_TOO_FAR_SIGNAL,
+   BI_SAFE_TO_BUY,
+   BI_SAFE_TO_SELL
+  };
 
 enum ConfirmationSignal
-{
-    CI_NO_INDICATOR_SIGNAL,
-    CI_BUY_SIGNAL,
-    CI_SELL_SIGNAL,
-    CI_NO_SIGNAL
-};
+  {
+   CI_NO_INDICATOR_SIGNAL,
+   CI_BUY_SIGNAL,
+   CI_SELL_SIGNAL,
+   CI_NO_SIGNAL
+  };
 
 enum ExitSignal
   {
@@ -28,3 +36,11 @@ enum ExitSignal
    EI_SAFE_TO_BUY,
    EI_SAFE_TO_SELL
   };
+
+enum VolumeIndicatorSignal
+  {
+   VI_NO_SIGNAL,
+   VI_SAFE_TO_BUY,
+   VI_SAFE_TO_SELL
+  };
+//+------------------------------------------------------------------+

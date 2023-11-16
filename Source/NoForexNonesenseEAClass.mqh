@@ -17,12 +17,18 @@ class CNoForexNonesenseEA
   {
 private:
    // Private functions --------------------------------------------------------------------------------------------------
+   BaselineSignal        get_baseline_signal();
+   void                  set_baseline_indicator_handle();
+
    void                 determine_first_confirmation_indicator_entry_signal();
    void                 set_confirmation_indicators_handle();
    ConfirmationSignal   get_first_confirmation_indicator_signal(int shift = 1);
    ConfirmationSignal   general_signal_to_confirmation_signal(GeneralSignal signal);
    void                 set_second_confirmation_indicator_signal(int shift = 1);
    void                 get_first_confirmation_indicator_current_signal_and_its_index(ConfirmationSignal &current_signal, int &index);
+
+   void                    set_volume_indicator_handle();
+   VolumeIndicatorSignal   get_volume_indicator_signal(int shift = 1);
 
    ExitSignal           get_exit_indicator_signal(int shift = 1);
    void                 set_exit_indicator_handle();
@@ -39,6 +45,7 @@ private:
 
    void                 handle_position_management_logic();
    void                 handle_the_entry_logic();
+   void                 update_all_indicator_signals_for_entry();
 
 
    // Private Variables --------------------------------------------------------------------------------------------------
@@ -53,6 +60,7 @@ private:
 
    BaselineIndicatorIndex        base_line_indicator_idx;
    int                           baseline_indicator_handle;
+   BaselineSignal                baseline_indicator_signal;
 
    ConfirmationIndicatorIndex    first_confirmation_indicator_idx;
    int                           first_confirmation_indicator_handle;
@@ -64,6 +72,7 @@ private:
 
    VolumeIndicatorIndex          volume_indicator_idx;
    int                           volume_indicator_handle;
+   VolumeIndicatorSignal                   volume_indicator_signal;
 
    ExitIndicatorIndex            exit_indicator_idx;
    int                           exit_indicator_handle;
@@ -77,6 +86,11 @@ private:
    // class memory
    int                           current_time, pre_time;
    bool                          new_candle, mode_changed;
+   bool                          exit_indicator_sell_signal, exit_indicator_buy_signal,
+                                 baseline_sell_signal, baseline_buy_signal,
+                                 first_confirmation_sell_signal, first_confirmation_buy_signal,
+                                 second_confirmation_sell_signal, second_confirmation_buy_signal,
+                                 volume_indicator_sell_signal, volume_indicator_buy_signal;
    EA_Mode                       ea_mode, pre_ea_mode;
    PositionState                 ea_position_state;
    TradingAction                 ea_action;
@@ -151,13 +165,16 @@ void CNoForexNonesenseEA::init(string _symbol,
 
 
 // Base ATR
-   atr_indicator_handle = iATR(_symbol, atr_indicator_period, atr_indicator_scope);
+   atr_indicator_handle = iATR(symbol, atr_indicator_period, atr_indicator_scope);
+
+// Baselines
+   set_baseline_indicator_handle();
 
 // Confirmations
    set_confirmation_indicators_handle();
 
 // Baselines
-//get_baseline_indicator_handle(baseline_handle, base_line_indicator_idx, ea_timeframe);
+   set_volume_indicator_handle();
 
 // Exit Indicator
    set_exit_indicator_handle();
@@ -219,7 +236,9 @@ void CNoForexNonesenseEA::on_tick()
 
 
 
+#include "Baseline.mqh"
 #include "ConfirmationIndicator.mqh"
+#include "VolumeIndicator.mqh"
 #include "ExitIndicator.mqh"
 #include "PositionManagement.mqh"
 #include "RiskManagement.mqh"

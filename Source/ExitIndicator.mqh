@@ -42,6 +42,9 @@ ExitSignal CNoForexNonesenseEA::get_exit_indicator_signal(int shift = 1)
   }
 //+------------------------------------------------------------------+
 
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
 void CNoForexNonesenseEA::set_exit_indicator_handle()
   {
    switch(exit_indicator_idx)
@@ -59,3 +62,4 @@ void CNoForexNonesenseEA::set_exit_indicator_handle()
          break;
      }
   }
+//+------------------------------------------------------------------+

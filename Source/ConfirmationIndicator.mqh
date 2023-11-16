@@ -28,14 +28,14 @@ void CNoForexNonesenseEA::determine_first_confirmation_indicator_entry_signal()
          case CI_BUY_SIGNAL:
             if(last_close - close_at_signal_index >= last_atr_value)
                last_first_confirmation_indicator_signal = CI_NO_SIGNAL;
-            else 
+            else
                last_first_confirmation_indicator_signal = signal;
             break;
-         
+
          case CI_SELL_SIGNAL:
             if(close_at_signal_index - last_close >= last_atr_value)
                last_first_confirmation_indicator_signal = CI_NO_SIGNAL;
-            else 
+            else
                last_first_confirmation_indicator_signal = signal;
 
          default:
@@ -66,22 +66,22 @@ void CNoForexNonesenseEA::set_confirmation_indicators_handle()
          break;
 
       case CI_AO:
-         first_confirmation_indicator_handle = iAO(Symbol(), ea_timeframe);
+         first_confirmation_indicator_handle = iAO(symbol, ea_timeframe);
          break;
 
       case CI_AC:
-         first_confirmation_indicator_handle = iAC(Symbol(), ea_timeframe);
+         first_confirmation_indicator_handle = iAC(symbol, ea_timeframe);
          break;
 
       case CI_SMA:
-         first_confirmation_indicator_handle = iMA(Symbol(), ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         first_confirmation_indicator_handle = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         first_confirmation_indicator_handle = iCustom(Symbol(), ea_timeframe, ConfirmationIndicatorAddresses[first_confirmation_indicator_idx]);
+         first_confirmation_indicator_handle = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[first_confirmation_indicator_idx]);
          break;
      }
-     
+
    switch(second_confirmation_indicator_idx)
      {
       case  NO_CONFIRMATION_INDICATOR:
@@ -89,19 +89,19 @@ void CNoForexNonesenseEA::set_confirmation_indicators_handle()
          break;
 
       case CI_AO:
-         second_confirmation_indicator_handle = iAO(Symbol(), ea_timeframe);
+         second_confirmation_indicator_handle = iAO(symbol, ea_timeframe);
          break;
 
       case CI_AC:
-         second_confirmation_indicator_handle = iAC(Symbol(), ea_timeframe);
+         second_confirmation_indicator_handle = iAC(symbol, ea_timeframe);
          break;
 
       case CI_SMA:
-         second_confirmation_indicator_handle = iMA(Symbol(), ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         second_confirmation_indicator_handle = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         second_confirmation_indicator_handle = iCustom(Symbol(), ea_timeframe, ConfirmationIndicatorAddresses[second_confirmation_indicator_idx]);
+         second_confirmation_indicator_handle = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[second_confirmation_indicator_idx]);
          break;
      }
   }
@@ -135,6 +135,9 @@ ConfirmationSignal CNoForexNonesenseEA::get_first_confirmation_indicator_signal(
    return general_signal_to_confirmation_signal(signal);
   }
 
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
 void CNoForexNonesenseEA::set_second_confirmation_indicator_signal(int shift = 1)
   {
    GeneralSignal signal;
@@ -169,17 +172,21 @@ void CNoForexNonesenseEA::get_first_confirmation_indicator_current_signal_and_it
    current_signal = get_first_confirmation_indicator_signal();
    ConfirmationSignal pre_signal = current_signal;
    index = 1;
-   if(current_signal == CI_NO_SIGNAL || current_signal == CI_NO_INDICATOR_SIGNAL) return;
+   if(current_signal == CI_NO_SIGNAL || current_signal == CI_NO_INDICATOR_SIGNAL)
+      return;
    while(pre_signal == current_signal)
      {
       index++;
       pre_signal = get_first_confirmation_indicator_signal(index);
      }
-     index--;
+   index--;
   }
 
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
 ConfirmationSignal CNoForexNonesenseEA::general_signal_to_confirmation_signal(GeneralSignal signal)
-{
+  {
    switch(signal)
      {
       case BUY_SIGNAL:
@@ -195,4 +202,5 @@ ConfirmationSignal CNoForexNonesenseEA::general_signal_to_confirmation_signal(Ge
          return CI_NO_INDICATOR_SIGNAL;
          break;
      }
-}
+  }
+//+------------------------------------------------------------------+
