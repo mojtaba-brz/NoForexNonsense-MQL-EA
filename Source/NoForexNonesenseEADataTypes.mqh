@@ -14,6 +14,15 @@ enum EA_Mode
    MANAGE_THE_POSITION
   };
 
+enum IndicatorType 
+{
+    I_TYPE_ATR,
+    I_TYPE_BASELINE,
+    I_TYPE_CONFIRMATION,
+    I_TYPE_VOLUME,
+    I_TYPE_EXIT
+};
+
 enum BaselineSignal
   {
    BI_NO_SIGNAL,

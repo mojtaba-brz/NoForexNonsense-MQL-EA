@@ -45,7 +45,7 @@ void CNoForexNonesenseEA::manage_positions_nnf_method()
   {
    CPosition   cp1(symbol, robot_magic_number),
                cp2(symbol, robot_magic_number + 1);
-   sl_diff = 1.5*get_indicator_value_by_handle(atr_indicator_handle);
+   sl_diff = 1.5*get_indicator_value(atr_indicator_handle);
    manage_the_trailing_sl_of_position(cp1, sl_diff, pre_sl, ea_timeframe);
    manage_the_trailing_sl_of_position(cp2, sl_diff, pre_sl, ea_timeframe);
   }

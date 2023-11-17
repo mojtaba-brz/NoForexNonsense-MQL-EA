@@ -1,22 +1,39 @@
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-void CNoForexNonesenseEA::set_volume_indicator_handle()
+#ifdef __MQL4__
+double CNoForexNonesenseEA::get_volume_indicator_value_mt4(int shift = 1, int line_index = 0)
+{
+   double temp_var;
+#else
+int CNoForexNonesenseEA::get_volume_indicator_handle()
   {
+   int temp_var;
+#endif 
    switch(volume_indicator_idx)
      {
       case  NO_VOLUME_INDICATOR:
-         volume_indicator_handle = -1;
+         temp_var = -1;
 
+#ifdef __MQL4__
       case VI_SMA:
-         volume_indicator_handle = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE, shift);
          break;
 
       default:
-         volume_indicator_handle = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx]);
+         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx], line_index, shift);
          break;
-     }
+#else
+      case VI_SMA:
+         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         break;
 
+      default:
+         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx]);
+         break;
+#endif
+     }
+   return temp_var;
   }
 
 //+------------------------------------------------------------------+

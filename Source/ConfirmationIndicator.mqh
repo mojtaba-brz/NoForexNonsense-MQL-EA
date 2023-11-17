@@ -19,7 +19,7 @@ void CNoForexNonesenseEA::determine_first_confirmation_indicator_entry_signal()
    get_first_confirmation_indicator_current_signal_and_its_index(signal, signal_index);
    if(use_one_candle_rule)
      {
-      last_atr_value = get_indicator_value_by_handle(atr_indicator_handle, 1);
+      last_atr_value = get_indicator_value(atr_indicator_handle, 1);
       last_close = iClose(symbol, ea_timeframe, 1);
       close_at_signal_index = iClose(symbol, ea_timeframe, signal_index);
 
@@ -57,53 +57,58 @@ void CNoForexNonesenseEA::determine_first_confirmation_indicator_entry_signal()
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-void CNoForexNonesenseEA::set_confirmation_indicators_handle()
+#ifdef __MQL4__
+double CNoForexNonesenseEA::get_confirmation_indicator_value_mt4(int indicator_index = NO_CONFIRMATION_INDICATOR, int shift = 1, int line_index = 0)
+{
+   double temp_var;
+#else 
+int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index = NO_CONFIRMATION_INDICATOR)
   {
-   switch(first_confirmation_indicator_idx)
+   int temp_var;
+#endif
+
+   switch(indicator_index)
      {
       case  NO_CONFIRMATION_INDICATOR:
-         first_confirmation_indicator_handle = -1;
+         temp_var = (int)EMPTY_VALUE;
          break;
 
+#ifdef __MQL4__
       case CI_AO:
-         first_confirmation_indicator_handle = iAO(symbol, ea_timeframe);
+         temp_var = iAO(symbol, ea_timeframe, shift);
          break;
 
       case CI_AC:
-         first_confirmation_indicator_handle = iAC(symbol, ea_timeframe);
+         temp_var = iAC(symbol, ea_timeframe, shift);
          break;
 
       case CI_SMA:
-         first_confirmation_indicator_handle = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE, shift);
          break;
 
       default:
-         first_confirmation_indicator_handle = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[first_confirmation_indicator_idx]);
+         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], line_index ,shift);
          break;
-     }
-
-   switch(second_confirmation_indicator_idx)
-     {
-      case  NO_CONFIRMATION_INDICATOR:
-         second_confirmation_indicator_handle = -1;
-         break;
-
+#else 
       case CI_AO:
-         second_confirmation_indicator_handle = iAO(symbol, ea_timeframe);
+         temp_var = iAO(symbol, ea_timeframe);
          break;
 
       case CI_AC:
-         second_confirmation_indicator_handle = iAC(symbol, ea_timeframe);
+         temp_var = iAC(symbol, ea_timeframe);
          break;
 
       case CI_SMA:
-         second_confirmation_indicator_handle = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         second_confirmation_indicator_handle = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[second_confirmation_indicator_idx]);
+         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index]);
          break;
+#endif
      }
+
+   return temp_var;
   }
 
 //+------------------------------------------------------------------+

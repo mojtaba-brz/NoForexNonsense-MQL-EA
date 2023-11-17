@@ -1,4 +1,4 @@
-IndicatorSignalType ConfirmationIndicatorSignalType[] { 
+IndicatorSignalType ConfirmationIndicatorSignalType[] = { 
 INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS, 
 INDICATOR_SIGNAL_TYPE_SLOPE_CHANGE, 
 INDICATOR_SIGNAL_TYPE_ZERO_CROSS, 
@@ -32,17 +32,17 @@ INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS,
 INDICATOR_SIGNAL_TYPE_DUMMY 
 }; 
  
-IndicatorSignalType BaselineIndicatorSignalType[] { 
+IndicatorSignalType BaselineIndicatorSignalType[] = { 
 INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS, 
 INDICATOR_SIGNAL_TYPE_DUMMY 
 }; 
  
-IndicatorSignalType VolumeIndicatorSignalType[] { 
+IndicatorSignalType VolumeIndicatorSignalType[] = { 
 INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS, 
 INDICATOR_SIGNAL_TYPE_DUMMY 
 }; 
  
-IndicatorSignalType ExitIndicatorSignalType[] { 
+IndicatorSignalType ExitIndicatorSignalType[] = { 
 INDICATOR_SIGNAL_TYPE_CLOSE_PRICE_CROSS, 
 INDICATOR_SIGNAL_TYPE_DUMMY 
 }; 

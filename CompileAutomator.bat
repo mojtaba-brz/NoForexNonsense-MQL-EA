@@ -46,9 +46,9 @@ setlocal EnableDelayedExpansion
 set enums_file="Indicators/IndicatorEnums.mqh"
 @echo enum ConfirmationIndicatorIndex { > !enums_file!
 set addresses_file="Indicators/IndicatorsAddresses.mqh"
-@echo string ConfirmationIndicatorAddresses[] { > !addresses_file!
+@echo string ConfirmationIndicatorAddresses[] = { > !addresses_file!
 set signals_file="Indicators/IndicatorsSignalType.mqh"
-@echo IndicatorSignalType ConfirmationIndicatorSignalType[] { > !signals_file!
+@echo IndicatorSignalType ConfirmationIndicatorSignalType[] = { > !signals_file!
 
 set file_name=""
 
@@ -84,8 +84,8 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
 @echo. >> !signals_file!
 
 @echo enum BaselineIndicatorIndex { >> !enums_file!
-@echo string BaselineIndicatorAddresses[] { >> !addresses_file!
-@echo IndicatorSignalType BaselineIndicatorSignalType[] { >> !signals_file!
+@echo string BaselineIndicatorAddresses[] = { >> !addresses_file!
+@echo IndicatorSignalType BaselineIndicatorSignalType[] = { >> !signals_file!
 
 for %%f in ("Indicators/Table_Bas*.csv") do (
     set file_name=%%f
@@ -119,8 +119,8 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
 @echo. >> !signals_file!
 
 @echo enum VolumeIndicatorIndex { >> !enums_file!
-@echo string VolumeIndicatorAddresses[] { >> !addresses_file!
-@echo IndicatorSignalType VolumeIndicatorSignalType[] { >> !signals_file!
+@echo string VolumeIndicatorAddresses[] = { >> !addresses_file!
+@echo IndicatorSignalType VolumeIndicatorSignalType[] = { >> !signals_file!
 
 for %%f in ("Indicators/Table_Vol*.csv") do (
     set file_name=%%f
@@ -154,8 +154,8 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
 @echo. >> !signals_file!
 
 @echo enum ExitIndicatorIndex { >> !enums_file!
-@echo string ExitIndicatorAddresses[] { >> !addresses_file!
-@echo IndicatorSignalType ExitIndicatorSignalType[] { >> !signals_file!
+@echo string ExitIndicatorAddresses[] = { >> !addresses_file!
+@echo IndicatorSignalType ExitIndicatorSignalType[] = { >> !signals_file!
 
 for %%f in ("Indicators/Table_Exi*.csv") do (
     set file_name=%%f
@@ -195,8 +195,8 @@ for %%f in ("*EA.mq5") do (
 for %%f in ("*EA.mq4") do (
     "%MetaEditorApp%" /compile:"%%f"
 )
-move "*.ex4" "../../Expert/"
-move "*.ex5" "../../Expert/"
+move "*.ex4" "../../Experts/"
+move "*.ex5" "../../Experts/"
 
 
 echo.

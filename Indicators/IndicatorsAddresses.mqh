@@ -1,4 +1,4 @@
-string ConfirmationIndicatorAddresses[] { 
+string ConfirmationIndicatorAddresses[] = { 
 "T3", 
 "Schaff Trend Cycle", 
 "FractalTrendID", 
@@ -32,17 +32,17 @@ string ConfirmationIndicatorAddresses[] {
 "" 
 }; 
  
-string BaselineIndicatorAddresses[] { 
+string BaselineIndicatorAddresses[] = { 
 "", 
 "" 
 }; 
  
-string VolumeIndicatorAddresses[] { 
+string VolumeIndicatorAddresses[] = { 
 "", 
 "" 
 }; 
  
-string ExitIndicatorAddresses[] { 
+string ExitIndicatorAddresses[] = { 
 "", 
 "" 
 }; 
