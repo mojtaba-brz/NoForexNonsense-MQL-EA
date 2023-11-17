@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                                   Mql Side TRBot |
+//|                                          NoForexNonsense-MQL4-EA |
 //|                              Email : mojtababahrami147@gmail.com |
 //+------------------------------------------------------------------+
 #property description "Main TRBot EA"
@@ -19,6 +19,7 @@ enum IndicatorType
     I_TYPE_ATR,
     I_TYPE_BASELINE,
     I_TYPE_CONFIRMATION,
+    I_TYPE_2ND_CONFIRMATION,
     I_TYPE_VOLUME,
     I_TYPE_EXIT
 };

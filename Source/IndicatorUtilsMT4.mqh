@@ -1,6 +1,6 @@
 
 #ifdef __MQL4__
-double CNoForexNonesenseEA::get_indicator_value(int indicator_type, int shift = 1, int line_index = 0, int confirmation_index = NO_CONFIRMATION_INDICATOR)
+double CNoForexNonesenseEA::get_indicator_value(int indicator_type, int shift = 1, int line_index = 0)
 {
     switch (indicator_type)
     {
@@ -13,7 +13,11 @@ double CNoForexNonesenseEA::get_indicator_value(int indicator_type, int shift = 
         break;
 
     case I_TYPE_CONFIRMATION:
-        return get_confirmation_indicator_value_mt4(confirmation_index, shift, line_index);
+        return get_confirmation_indicator_value_mt4(first_confirmation_indicator_idx, shift, line_index);
+        break;
+
+    case I_TYPE_2ND_CONFIRMATION:
+        return get_confirmation_indicator_value_mt4(second_confirmation_indicator_idx, shift, line_index);
         break;
 
     case I_TYPE_VOLUME:
