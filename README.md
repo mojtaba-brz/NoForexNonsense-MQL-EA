@@ -28,7 +28,19 @@ this is a **Metatrader4/5 EA** which uses **[No Nonsense Forex (NNF) strategy](#
 ### Mac
 Comming soon!
 
+## Supported Symbols
+
+* AUD
+* CAD
+* CHF
+* EUR
+* GBP
+* JPY
+* NZD
+* USD
+
 ---
+
 ## No Nonsense Forex (NNF) Strategy
 
 ### Main tools of the strategy
@@ -52,8 +64,3 @@ Comming soon!
 ## Diagram
 
 ![](./Docs/Excalidraw/NoForexNonsense%20StateMachine.excalidraw.png)
-
-
----
-
-
