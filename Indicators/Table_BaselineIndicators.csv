@@ -2,6 +2,33 @@
 // ===================================================== Table of Baseline indicator ============================================
 // ==============================================================================================================================
 // enum_name,  indicator name,   signal_type(CLOSE_PRICE_CROSS)
+MQL5, , =========================================================================================================================
+ALMA_1_3, "Alma_1_3", CLOSE_PRICE_CROSS
+ALMA_2, "Alma_v2", CLOSE_PRICE_CROSS
+HMA, "Hull average 2", CLOSE_PRICE_CROSS
+KAMA, "KAMA", CLOSE_PRICE_CROSS
+McGinley_Dynamic, "McGinley_Dynamic", CLOSE_PRICE_CROSS
+McGinley_Dynamic_Official, "McGinley dynamic average (official)", CLOSE_PRICE_CROSS
+Super_Smother, "Super Smother", CLOSE_PRICE_CROSS
+Supertrend, "supertrend", CLOSE_PRICE_CROSS
+T3_MA, "T3 MA", CLOSE_PRICE_CROSS
+Two_Pole_Super_Smoother, "twopolesupersmootherfilter", CLOSE_PRICE_CROSS
+Vidya, "Vidya", CLOSE_PRICE_CROSS
 
-// built in indicators
+MQL4, , =========================================================================================================================
+ATR_Based_EMA_v_1, "ATR_Based_EMA_variant_1", CLOSE_PRICE_CROSS
+Elhers_2_Poles_SSF, "Ehlers_Two_Pole_Super_Smoother_Filter", CLOSE_PRICE_CROSS
+Fantailvma, "fantailvma3", CLOSE_PRICE_CROSS
+GChannel, "GChannel", CLOSE_PRICE_CROSS
+GeoMin_MA, "GeoMin_MA", CLOSE_PRICE_CROSS
+HMA, "hma", CLOSE_PRICE_CROSS
+Mcginley_Dynamic_2_3, "mcginley dynamic 2.3", CLOSE_PRICE_CROSS
+KAMA, "KAMA", CLOSE_PRICE_CROSS
+ALMA, "alma-indicator", CLOSE_PRICE_CROSS
+T3_MA, "T3 MA", CLOSE_PRICE_CROSS
+Super_Smoother, "Super smoother", CLOSE_PRICE_CROSS
+Tether_Line, "Tether_Line", CLOSE_PRICE_CROSS
+VIDYA, "VIDYA", CLOSE_PRICE_CROSS
+
+BuiltIn, , =========================================================================================================================
 SMA, "", CLOSE_PRICE_CROSS

@@ -25,12 +25,12 @@ REM Use a for loop to iterate over the files in the folder
 echo Compiling indicators. please wait...
 
 for %%f in ("%folder%\*.mq5") do (
-    "%MetaEditorApp%" /compile:"%%f"
+    @REM "%MetaEditorApp%" /compile:"%%f"
 )
 set folder=Indicators\MT4-5-IndicatorCollection\MT4-Indicators
 
 for %%f in ("%folder%\*.mq4") do (
-    "%MetaEditorApp%" /compile:"%%f"
+    @REM "%MetaEditorApp%" /compile:"%%f"
 )
 
 echo Moving compiled indicators to Indicators folder...
@@ -66,10 +66,27 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
             set /a i+=1
             set element[!i!]=%%~b
         )
-        
-        @echo  CI_!element[1]!, >> !enums_file!
-        @echo "!element[2]!", >> !addresses_file!
-        @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+        if "!element[1]!" == "MQL5" (
+            @echo #ifdef __MQL5__ >> !enums_file!
+            @echo #ifdef __MQL5__ >> !addresses_file!
+            @echo #ifdef __MQL5__ >> !signals_file!
+        ) else (
+            if "!element[1]!" == "MQL4" (
+                @echo #else >> !enums_file!
+                @echo #else >> !addresses_file!
+                @echo #else >> !signals_file!
+            ) else (
+                if "!element[1]!" == "BuiltIn" (
+                    @echo #endif >> !enums_file!
+                    @echo #endif >> !addresses_file!
+                    @echo #endif >> !signals_file!
+                ) else (
+                    @echo CI_!element[1]!, >> !enums_file!
+                    @echo "!element[2]!", >> !addresses_file!
+                    @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+                )
+            )
+        )
     )
 )
 
@@ -101,10 +118,27 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
             set /a i+=1
             set element[!i!]=%%~b
         )
-        
-        @echo  BI_!element[1]!, >> !enums_file!
-        @echo "!element[2]!", >> !addresses_file!
-        @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+        if "!element[1]!" == "MQL5" (
+            @echo #ifdef __MQL5__ >> !enums_file!
+            @echo #ifdef __MQL5__ >> !addresses_file!
+            @echo #ifdef __MQL5__ >> !signals_file!
+        ) else (
+            if "!element[1]!" == "MQL4" (
+                @echo #else >> !enums_file!
+                @echo #else >> !addresses_file!
+                @echo #else >> !signals_file!
+            ) else (
+                if "!element[1]!" == "BuiltIn" (
+                    @echo #endif >> !enums_file!
+                    @echo #endif >> !addresses_file!
+                    @echo #endif >> !signals_file!
+                ) else (
+                    @echo BI_!element[1]!, >> !enums_file!
+                    @echo "!element[2]!", >> !addresses_file!
+                    @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+                )
+            )
+        )
     )
 )
 
@@ -136,10 +170,28 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
             set /a i+=1
             set element[!i!]=%%~b
         )
-        
-        @echo  VI_!element[1]!, >> !enums_file!
-        @echo "!element[2]!", >> !addresses_file!
-        @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+        if "!element[1]!" == "MQL5" (
+            @echo #ifdef __MQL5__ >> !enums_file!
+            @echo #ifdef __MQL5__ >> !addresses_file!
+            @echo #ifdef __MQL5__ >> !signals_file!
+        ) else (
+            if "!element[1]!" == "MQL4" (
+                @echo #else >> !enums_file!
+                @echo #else >> !addresses_file!
+                @echo #else >> !signals_file!
+            ) else (
+                if "!element[1]!" == "BuiltIn" (
+                    @echo #endif >> !enums_file!
+                    @echo #endif >> !addresses_file!
+                    @echo #endif >> !signals_file!
+                ) else (
+                    @echo VI_!element[1]!, >> !enums_file!
+                    @echo "!element[2]!", >> !addresses_file!
+                    @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+                )
+            )
+        )
+    )
     )
 )
 
@@ -157,7 +209,7 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
 @echo string ExitIndicatorAddresses[] = { >> !addresses_file!
 @echo IndicatorSignalType ExitIndicatorSignalType[] = { >> !signals_file!
 
-for %%f in ("Indicators/Table_Exi*.csv") do (
+for %%f in ("Indicators/Table_Conf*.csv") do (
     set file_name=%%f
 )
 
@@ -171,10 +223,29 @@ for /f "usebackq tokens=*" %%a in ("Indicators/%file_name%") do (
             set /a i+=1
             set element[!i!]=%%~b
         )
-        
-        @echo  EI_!element[1]!, >> !enums_file!
-        @echo "!element[2]!", >> !addresses_file!
-        @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+        if "!element[1]!" == "MQL5" (
+            @echo #ifdef __MQL5__ >> !enums_file!
+            @echo #ifdef __MQL5__ >> !addresses_file!
+            @echo #ifdef __MQL5__ >> !signals_file!
+        ) else (
+            if "!element[1]!" == "MQL4" (
+                @echo #else >> !enums_file!
+                @echo #else >> !addresses_file!
+                @echo #else >> !signals_file!
+            ) else (
+                if "!element[1]!" == "BuiltIn" (
+                    @echo #endif >> !enums_file!
+                    @echo #endif >> !addresses_file!
+                    @echo #endif >> !signals_file!
+                ) else (
+                    @echo EI_!element[1]!, >> !enums_file!
+                    @echo "!element[2]!", >> !addresses_file!
+                    @echo INDICATOR_SIGNAL_TYPE_!element[3]!, >> !signals_file!
+                )
+            )
+        )
+    )
+
     )
 )
 
