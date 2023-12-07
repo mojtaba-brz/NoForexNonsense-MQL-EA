@@ -32,7 +32,6 @@ NV, "normalizedvolume", ZERO_CROSS
 PM, "Polychromatic momentum", ZERO_CROSS
 SmoothStep, "SmoothStep", ZERO_CROSS
 Supertrend, "supertrend", CLOSE_PRICE_CROSS
-
 RecursiveMA, "RecursiveMA", TWO_LINE_CROSS
 SchaffTrendCycleNLMA, "Schaff trend cycle - nlma", SLOPE_CHANGE
 SchaffTrendJurikVolty, "Schaff trend Jurik volty adaptive RSX", SLOPE_CHANGE
