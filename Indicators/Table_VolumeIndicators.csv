@@ -13,13 +13,10 @@ TrendDirectionandForce, "Trend Direction And Force Index", CLOSE_PRICE_CROSS
 VolatilityRatio, "Volatility ratio", CLOSE_PRICE_CROSS
 
 MQL4, , =========================================================================================================================
-// adx, "adx", CLOSE_PRICE_CROSS
-WAE_Ext, "WAE_Ext", CLOSE_PRICE_CROSS
-VolatilityRatio, "Volatility ratio", CLOSE_PRICE_CROSS
-NormalizedVolume, "Normalized Volume", CLOSE_PRICE_CROSS
-Choppiness_index, "Choppiness_index", CLOSE_PRICE_CROSS
-Silence, "Silence", CLOSE_PRICE_CROSS
-WilliamVixFix, "William Vix-Fix", CLOSE_PRICE_CROSS
+VolatilityRatio, "Volatility ratio", ZERO_CROSS
+NormalizedVolume, "Normalized Volume", ZERO_CROSS
+Silence, "Silence", TWO_LINE_CROSS
+WilliamVixFix, "William Vix-Fix", ZERO_CROSS
 
 BuiltIn, , =========================================================================================================================
 SMA, "", CLOSE_PRICE_CROSS

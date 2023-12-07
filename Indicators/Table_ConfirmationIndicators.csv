@@ -31,7 +31,7 @@ McGinley_dynamic, "McGinley dynamic average (official)", SLOPE_CHANGE
 NV, "normalizedvolume", ZERO_CROSS
 PM, "Polychromatic momentum", ZERO_CROSS
 SmoothStep, "SmoothStep", ZERO_CROSS
-Supertrend, "supertrend", TWO_LINE_CROSS
+Supertrend, "supertrend", CLOSE_PRICE_CROSS
 
 RecursiveMA, "RecursiveMA", TWO_LINE_CROSS
 SchaffTrendCycleNLMA, "Schaff trend cycle - nlma", TWO_LINE_CROSS
@@ -47,72 +47,54 @@ ZeroLagMA, "Zero lag MA", TWO_LINE_CROSS
 
 MQL4, , =========================================================================================================================
 Kalman_Filter_Indicator, "kalman-filter-indicator", CLOSE_PRICE_CROSS
-Kalman_Filter_Indicator, "kalman-filter-indicator", SLOPE_CHANGE
+Kalman_Filter_Indicator_SC, "kalman-filter-indicator", SLOPE_CHANGE
 KFVelocity, "KFV elocity", ZERO_CROSS
-Zerolag_MACD, "Zerolag_MACD", TWO_LINE_CROSS
+Zerolag_MACD, "Zerolag_MACD", ZERO_CROSS
 Fisher_no_repainting, "Fisher_no_repainting", ZERO_CROSS
 Bears_Bulls_Impulse, "Bears Bulls Impulse", TWO_LINE_CROSS
 Aroon, "Aroon", TWO_LINE_CROSS
-Absolute_Strength_Histogram, " absolute-strength-histogram", TWO_LINE_CROSS
-STC, "Schaff Trend Cycle - adjustable signal mtf", TWO_LINE_CROSS
-TOPTREND, "TOPTREND", TWO_LINE_CROSS
+STC, "Schaff Trend Cycle - adjustable signal mtf", SLOPE_CHANGE
+TOPTREND, "TOPTREND", CLOSE_PRICE_CROSS
 Vortex_Indicator, "Vortex_Indicator", TWO_LINE_CROSS
 LWPI, "LWPI", ZERO_CROSS
 J_TPO, "J_TPO", ZERO_CROSS
-superBraid_Filter_Originaltrend, "Braid Filter Original", TWO_LINE_CROSS\
+superBraid_Filter_Originaltrend, "Braid Filter Original", TWO_LINE_CROSS
 RecursiveMA, "RecursiveMA", TWO_LINE_CROSS
 Coral, "Coral", SLOPE_CHANGE
 Coral_CPC, "Coral", CLOSE_PRICE_CROSS
-DinapoliStoch, "Dinapoli stoch", TWO_LINE_CROSS
-TTF, "TTF", TWO_LINE_CROSS
-VolatilityQuality, "Volatility quality - zero line averages 2.4", TWO_LINE_CROSS
-Alaskan_pip_assassin_mod, "Alaskan pip assassin mod", TWO_LINE_CROSS
-Alaskan_Pip_Assassin, "Alaskan_Pip_Assassin", TWO_LINE_CROSS
-uf2018_indicator, "uf2018-indicator", TWO_LINE_CROSS
-EaseOfMovement, "Ease of movement", TWO_LINE_CROSS
+TTF, "TTF", ZERO_CROSS
+uf2018_indicator, "uf2018-indicator", ZERO_CROSS
 TrendContinuation2, "TrendContinuation2", TWO_LINE_CROSS
-SmoothStep, "SmoothStep", TWO_LINE_CROSS
+SmoothStep, "SmoothStep", SLOPE_CHANGE
 KVO, "KVO", ZERO_CROSS
 3rdgenma, "3rdgenma", TWO_LINE_CROSS
 3rdgenma_CPC, "3rdgenma", CLOSE_PRICE_CROSS
 Detrended_Synthetic_Price_goscillators, "Detrended_Synthetic_Price_goscillators", ZERO_CROSS
 HalfTrend_SC, "half trend", SLOPE_CHANGE
-VulkanProfit, "Vulkan Profit", TWO_LINE_CROSS
 Ehlers_CG, "Ehlers_CG", TWO_LINE_CROSS
 Ehlers_CG_ZC, "Ehlers_CG", ZERO_CROSS
 Laguerre, "Laguerre", ZERO_CROSS
-Twiggs_Money_Flow, "Twiggs_Money_Flow", TWO_LINE_CROSS
+Twiggs_Money_Flow, "Twiggs_Money_Flow", ZERO_CROSS
 TrendLord, "trend-lord-nrp-indicator", TWO_LINE_CROSS
 Grucha_percentage_Index_V2, "Grucha_percentage_Index_V2", TWO_LINE_CROSS
-HeikenAshiSmoothed, "heiken-ashi-smoothed", TWO_LINE_CROSS
 KasePermissionStochasticSmoothed, "kase-permission-stochastic-smoothed", TWO_LINE_CROSS
-Trendilo, "Trendilo", TWO_LINE_CROSS
-CoppockCurve, "coppock-curve-indicator", TWO_LINE_CROSS
-PolychromaticMomentum, "polychromatic-momentum-indicator", TWO_LINE_CROSS
 KasePeakOscillator, "kase_peak_oscillator", ZERO_CROSS
 DPOHist, "dpo-histogram-indicator", ZERO_CROSS
 QQE_with_Alerts, "QQE_with_Alerts", TWO_LINE_CROSS
 CMO, "CMO", ZERO_CROSS
-JurikVoltyBands, "Jurik_volty_bands_-_separate_1", TWO_LINE_CROSS
-PrecisionTrendHistogram, "precision-trend-histogram", TWO_LINE_CROSS
-Trend, "Trend", TWO_LINE_CROSS
-Sherif_Hilo, "Sherif_Hilo", TWO_LINE_CROSS
+PrecisionTrendHistogram, "precision-trend-histogram", ZERO_CROSS
+Sherif_Hilo, "Sherif_Hilo", CLOSE_PRICE_CROSS
 TriggerLines, "adaptive_smoother_triggerlines_mtf_alerts_nmc", SLOPE_CHANGE
-Stable_nrp, "Stable_nrp", TWO_LINE_CROSS
 EhlersDELI, "Ehlers DELI (Detrended Leading Indicator)", ZERO_CROSS
 ISCalculation, "IS Calculation", TWO_LINE_CROSS
 ISCalculation_ZLC, "IS Calculation", ZERO_CROSS
 DollarPile, "dollar-pile-indicator", TWO_LINE_CROSS
-AdvanceTrendPressure, "TP", TWO_LINE_CROSS
-TrendDirection, "trend-direction-indicator", TWO_LINE_CROSS
+AdvanceTrendPressure, "TP", ZERO_CROSS
 _2ndOrderHighPassGaussianFilter, "2nd Order Gaussian High Pass Filter mtf Zones", ZERO_CROSS
 AverageSentimentOscillator, "ASO", TWO_LINE_CROSS
-CorrelationTrend, "Correlation trend", TWO_LINE_CROSS
-TradingOscillator, "trading-oscillator-indicator", TWO_LINE_CROSS
-TradingIntensityIndex, "TII", TWO_LINE_CROSS
-TREND_AKKAM, "TREND AKKAM", TWO_LINE_CROSS
+TREND_AKKAM, "TREND AKKAM", CLOSE_PRICE_CROSS
 RWI_BTF, "RWI BTF", TWO_LINE_CROSS
-TheTurtleTradingChannel, "TheTurtleTradingChannel", TWO_LINE_CROSS
+TheTurtleTradingChannel, "TheTurtleTradingChannel", CLOSE_PRICE_CROSS
 ChandelierExit, "ChandelierExit", CLOSE_PRICE_CROSS
 
 BuiltIn, , =========================================================================================================================
