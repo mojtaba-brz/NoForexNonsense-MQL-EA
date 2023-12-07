@@ -50,7 +50,7 @@ enum ExitSignal
 enum VolumeIndicatorSignal
   {
    VI_NO_SIGNAL,
-   VI_SAFE_TO_BUY,
-   VI_SAFE_TO_SELL
+   VI_SAFE_TO_TRADE,
+   VI_NOT_SAFE_TO_TRADE
   };
 //+------------------------------------------------------------------+

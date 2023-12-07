@@ -3,13 +3,13 @@
 //+------------------------------------------------------------------+
 #ifdef __MQL4__
 double CNoForexNonesenseEA::get_volume_indicator_value_mt4(int shift = 1, int line_index = 0)
-{
+  {
    double temp_var;
 #else
 int CNoForexNonesenseEA::get_volume_indicator_handle()
   {
    int temp_var;
-#endif 
+#endif
    switch(volume_indicator_idx)
      {
       case  NO_VOLUME_INDICATOR:
@@ -43,7 +43,7 @@ VolumeIndicatorSignal CNoForexNonesenseEA::get_volume_indicator_signal(int shift
   {
    GeneralSignal temp_confirmation_signal = NO_SIGNAL;
 
-   switch(ExitIndicatorSignalType[volume_indicator_idx])
+   switch(VolumeIndicatorSignalType[volume_indicator_idx])
      {
       case  INDICATOR_SIGNAL_TYPE_ZERO_CROSS:
          temp_confirmation_signal = get_zero_cross_general_signal(volume_indicator_handle, shift);
@@ -69,12 +69,12 @@ VolumeIndicatorSignal CNoForexNonesenseEA::get_volume_indicator_signal(int shift
 
    if(temp_confirmation_signal == BUY_SIGNAL)
      {
-      return VI_SAFE_TO_BUY;
+      return VI_SAFE_TO_TRADE;
      }
    else
       if(temp_confirmation_signal == SELL_SIGNAL)
         {
-         return VI_SAFE_TO_SELL;
+         return VI_NOT_SAFE_TO_TRADE;
         }
    return VI_NO_SIGNAL;
   }

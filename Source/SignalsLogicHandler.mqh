@@ -18,8 +18,8 @@ void CNoForexNonesenseEA::handle_the_entry_logic()
    bool to_sell_signal = last_first_confirmation_indicator_signal == CI_SELL_SIGNAL;
 
 
-   bool to_buy_green_light = baseline_buy_signal && second_confirmation_buy_signal && volume_indicator_buy_signal && exit_indicator_buy_signal;
-   bool to_sell_green_light = baseline_sell_signal && second_confirmation_sell_signal && volume_indicator_sell_signal && exit_indicator_sell_signal;
+   bool to_buy_green_light = baseline_buy_signal && second_confirmation_buy_signal && volume_indicator_green_light && exit_indicator_buy_signal;
+   bool to_sell_green_light = baseline_sell_signal && second_confirmation_sell_signal && volume_indicator_green_light && exit_indicator_sell_signal;
 
    if(to_buy_signal && to_buy_green_light)
      {
@@ -90,7 +90,6 @@ void CNoForexNonesenseEA::handle_position_management_logic()
 void CNoForexNonesenseEA::update_all_indicator_signals_for_entry()
   {
    baseline_indicator_signal = get_baseline_signal();
-   ConfirmationSignal ci_signal = get_first_confirmation_indicator_signal();
    set_second_confirmation_indicator_signal();
    volume_indicator_signal = get_volume_indicator_signal();
    exit_indicator_signal = get_exit_indicator_signal();
@@ -99,17 +98,13 @@ void CNoForexNonesenseEA::update_all_indicator_signals_for_entry()
    baseline_sell_signal = baseline_indicator_signal == BI_NO_SIGNAL || baseline_indicator_signal == BI_SAFE_TO_SELL;
    baseline_buy_signal = baseline_indicator_signal == BI_NO_SIGNAL || baseline_indicator_signal == BI_SAFE_TO_BUY;
 
-   first_confirmation_sell_signal = ci_signal == CI_NO_SIGNAL || ci_signal == CI_SELL_SIGNAL;
-   first_confirmation_buy_signal = ci_signal == CI_NO_SIGNAL || ci_signal == CI_BUY_SIGNAL;
-
    second_confirmation_sell_signal = last_second_confirmation_indicator_signal != CI_BUY_SIGNAL;
    second_confirmation_buy_signal = last_second_confirmation_indicator_signal != CI_SELL_SIGNAL;
 
-   volume_indicator_sell_signal = volume_indicator_signal == VI_SAFE_TO_SELL || volume_indicator_signal == VI_NO_SIGNAL;
-   volume_indicator_buy_signal = volume_indicator_signal == VI_SAFE_TO_BUY || volume_indicator_signal == VI_NO_SIGNAL;
+   volume_indicator_green_light = volume_indicator_signal != VI_NOT_SAFE_TO_TRADE;
 
-   exit_indicator_sell_signal = exit_indicator_signal == EI_SAFE_TO_SELL || exit_indicator_signal == EI_NO_SIGNAL;
-   exit_indicator_buy_signal = exit_indicator_signal == EI_SAFE_TO_BUY || exit_indicator_signal == EI_NO_SIGNAL;
+   exit_indicator_sell_signal = exit_indicator_signal != EI_SAFE_TO_BUY;
+   exit_indicator_buy_signal = exit_indicator_signal != EI_SAFE_TO_SELL;
 
   }
 
@@ -121,7 +116,6 @@ void CNoForexNonesenseEA::update_all_indicator_signals_for_position_management()
    baseline_indicator_signal = get_baseline_signal();
    ConfirmationSignal ci_signal = get_first_confirmation_indicator_signal();
    set_second_confirmation_indicator_signal();
-   volume_indicator_signal = get_volume_indicator_signal();
    exit_indicator_signal = get_exit_indicator_signal();
 
 
@@ -138,3 +132,4 @@ void CNoForexNonesenseEA::update_all_indicator_signals_for_position_management()
    exit_indicator_buy_signal = exit_indicator_signal != EI_SAFE_TO_SELL;
 
   }
+//+------------------------------------------------------------------+

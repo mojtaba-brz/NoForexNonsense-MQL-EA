@@ -38,6 +38,8 @@ string ConfirmationIndicatorAddresses[] = {
 "Volatility quality", 
 "Vortex", 
 "ZeroLagEMA", 
+"ZeroLagEMA", 
+"Zero lag MA", 
 "Zero lag MA", 
 #else 
 "kalman-filter-indicator", 
@@ -189,6 +191,8 @@ string ExitIndicatorAddresses[] = {
 "Volatility quality", 
 "Vortex", 
 "ZeroLagEMA", 
+"ZeroLagEMA", 
+"Zero lag MA", 
 "Zero lag MA", 
 #else 
 "kalman-filter-indicator", 

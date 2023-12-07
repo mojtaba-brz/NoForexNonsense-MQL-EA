@@ -59,9 +59,9 @@ void CNoForexNonesenseEA::determine_first_confirmation_indicator_entry_signal()
 //+------------------------------------------------------------------+
 #ifdef __MQL4__
 double CNoForexNonesenseEA::get_confirmation_indicator_value_mt4(int indicator_index = NO_CONFIRMATION_INDICATOR, int shift = 1, int line_index = 0)
-{
+  {
    double temp_var;
-#else 
+#else
 int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index = NO_CONFIRMATION_INDICATOR)
   {
    int temp_var;
@@ -87,9 +87,9 @@ int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index 
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], line_index ,shift);
+         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], line_index,shift);
          break;
-#else 
+#else
       case CI_AO:
          temp_var = iAO(symbol, ea_timeframe);
          break;

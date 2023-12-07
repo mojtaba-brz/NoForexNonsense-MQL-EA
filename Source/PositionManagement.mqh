@@ -12,7 +12,12 @@ void CNoForexNonesenseEA::enter_two_positions()
         {
          enter_short_positions_nnf_method();
         }
-   ea_mode = MANAGE_THE_POSITION;
+
+   set_current_position_state();
+   if(ea_position_state != POS_STATE_NO_POSITION)
+     {
+      ea_mode = MANAGE_THE_POSITION;
+     }
   }
 
 //+------------------------------------------------------------------+
