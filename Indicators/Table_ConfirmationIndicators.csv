@@ -34,16 +34,18 @@ SmoothStep, "SmoothStep", ZERO_CROSS
 Supertrend, "supertrend", CLOSE_PRICE_CROSS
 
 RecursiveMA, "RecursiveMA", TWO_LINE_CROSS
-SchaffTrendCycleNLMA, "Schaff trend cycle - nlma", TWO_LINE_CROSS
-SchaffTrendJurikVolty, "Schaff trend Jurik volty adaptive RSX", TWO_LINE_CROSS
-Trendilo, "Trendilo", TWO_LINE_CROSS
-TrendLord, "TrendLord", TWO_LINE_CROSS
-TFF, "TFF", TWO_LINE_CROSS
-Twiggs_Money_Flow, "Twiggs_Money_Flow", TWO_LINE_CROSS
-VolatilityQuality, "Volatility quality", TWO_LINE_CROSS
+SchaffTrendCycleNLMA, "Schaff trend cycle - nlma", SLOPE_CHANGE
+SchaffTrendJurikVolty, "Schaff trend Jurik volty adaptive RSX", SLOPE_CHANGE
+Trendilo, "Trendilo", ZERO_CROSS
+TrendLord, "TrendLord", SLOPE_CHANGE
+TFF, "TFF", ZERO_CROSS
+Twiggs_Money_Flow, "Twiggs_Money_Flow", ZERO_CROSS
+VolatilityQuality, "Volatility quality", SLOPE_CHANGE
 Vortex, "Vortex", TWO_LINE_CROSS
-ZeroLagEMA, "ZeroLagEMA", TWO_LINE_CROSS
-ZeroLagMA, "Zero lag MA", TWO_LINE_CROSS
+ZeroLagEMA, "ZeroLagEMA", SLOPE_CHANGE
+ZeroLagEMA_CRP, "ZeroLagEMA", CLOSE_PRICE_CROSS
+ZeroLagMA, "Zero lag MA", CLOSE_PRICE_CROSS
+ZeroLagMA_SC, "Zero lag MA", SLOPE_CHANGE
 
 MQL4, , =========================================================================================================================
 Kalman_Filter_Indicator, "kalman-filter-indicator", CLOSE_PRICE_CROSS

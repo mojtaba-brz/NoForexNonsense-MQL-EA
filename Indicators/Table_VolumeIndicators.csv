@@ -3,14 +3,14 @@
 // ==============================================================================================================================
 // enum_name,  indicator name,   signal_type(ZERO_CROSS, SLOPE_CHANGE, TWO_LINE_CROSS, CLOSE_PRICE_CROSS)
 MQL5, , =========================================================================================================================
-WaddahAttarExplosion, "waddah_attar_explosion", CLOSE_PRICE_CROSS
-ChoppinessIndex, "Choppiness index", CLOSE_PRICE_CROSS
-NormalizedVolume, "normalizedvolume", CLOSE_PRICE_CROSS
-JMASmoothed, "Trend direction and force - JMA smoothed", CLOSE_PRICE_CROSS
-Smoothed, "Trend direction and force - smoothed", CLOSE_PRICE_CROSS
-TrendDirectionDSEMASmoothed, "Trend Direction and Force DSEMA Smoothed MT5 Indicator", CLOSE_PRICE_CROSS
-TrendDirectionandForce, "Trend Direction And Force Index", CLOSE_PRICE_CROSS
-VolatilityRatio, "Volatility ratio", CLOSE_PRICE_CROSS
+WaddahAttarExplosion, "waddah_attar_explosion", TWO_LINE_CROSS
+ChoppinessIndex, "Choppiness index", ZERO_CROSS
+NormalizedVolume, "normalizedvolume", ZERO_CROSS
+JMASmoothed, "Trend direction and force - JMA smoothed", ZERO_CROSS
+Smoothed, "Trend direction and force - smoothed", ZERO_CROSS
+TrendDirectionDSEMASmoothed, "Trend Direction and Force DSEMA Smoothed MT5 Indicator", ZERO_CROSS
+TrendDirectionandForce, "Trend Direction And Force Index", ZERO_CROSS
+VolatilityRatio, "Volatility ratio", ZERO_CROSS
 
 MQL4, , =========================================================================================================================
 VolatilityRatio, "Volatility ratio", ZERO_CROSS
