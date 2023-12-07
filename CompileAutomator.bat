@@ -18,19 +18,18 @@ if "%MetaEditorApp%"=="" (
     exit /b 0
 )
 
-
 set folder=Indicators\MT4-5-IndicatorCollection\MT5-Indicators
 
-REM Use a for loop to iterate over the files in the folder
+@REM Use a for loop to iterate over the files in the folder
 echo Compiling indicators. please wait...
 
 for %%f in ("%folder%\*.mq5") do (
-    @REM "%MetaEditorApp%" /compile:"%%f"
+    "%MetaEditorApp%" /compile:"%%f"
 )
 set folder=Indicators\MT4-5-IndicatorCollection\MT4-Indicators
 
 for %%f in ("%folder%\*.mq4") do (
-    @REM "%MetaEditorApp%" /compile:"%%f"
+    "%MetaEditorApp%" /compile:"%%f"
 )
 
 echo Moving compiled indicators to Indicators folder...
