@@ -65,7 +65,7 @@
 
 ## NNF Strategy References
 
-This strategy is explained in these two references
+This strategy is explained in these references
 1. [📃No Nonsense Forex Website](https://nononsenseforex.com/)
 2. [📺 No Nonsense Forex youtube channel](https://www.youtube.com/c/nononsenseforex)
 3. [📃Stone Hill Forex Website](https://https://stonehillforex.com/.com/)
