@@ -61,19 +61,19 @@ int CNoForexNonesenseEA::get_exit_indicator_handle()
          break;
 #ifdef __MQL4__
       case EI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE, shift);
+         temp_var = iMA(symbol, ea_timeframe, exit_config_parameter, 0, MODE_SMA, PRICE_CLOSE, shift);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ExitIndicatorAddresses[volume_indicator_idx], line_index, shift);
+         temp_var = iCustom(symbol, ea_timeframe, ExitIndicatorAddresses[volume_indicator_idx], line_index, shift, exit_config_parameter);
          break;
 #else
       case EI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, exit_config_parameter, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ExitIndicatorAddresses[volume_indicator_idx]);
+         temp_var = iCustom(symbol, ea_timeframe, ExitIndicatorAddresses[volume_indicator_idx], exit_config_parameter);
          break;
 #endif
      }

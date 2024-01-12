@@ -17,19 +17,19 @@ int CNoForexNonesenseEA::get_volume_indicator_handle()
 
 #ifdef __MQL4__
       case VI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE, shift);
+         temp_var = iMA(symbol, ea_timeframe, volume_config_parameter, 0, MODE_SMA, PRICE_CLOSE, shift);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx], line_index, shift);
+         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx], line_index, shift, volume_config_parameter);
          break;
 #else
       case VI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, volume_config_parameter, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx]);
+         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx], volume_config_parameter);
          break;
 #endif
      }

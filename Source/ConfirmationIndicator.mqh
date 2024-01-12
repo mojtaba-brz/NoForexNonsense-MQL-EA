@@ -62,7 +62,7 @@ double CNoForexNonesenseEA::get_confirmation_indicator_value_mt4(int indicator_i
   {
    double temp_var;
 #else
-int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index = NO_CONFIRMATION_INDICATOR)
+int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index = NO_CONFIRMATION_INDICATOR, int config_param = 14)
   {
    int temp_var;
 #endif
@@ -83,11 +83,11 @@ int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index 
          break;
 
       case CI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE, shift);
+         temp_var = iMA(symbol, ea_timeframe, config_param, 0, MODE_SMA, PRICE_CLOSE, shift);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], line_index,shift);
+         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], line_index,shift, config_param);
          break;
 #else
       case CI_AO:
@@ -99,11 +99,11 @@ int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index 
          break;
 
       case CI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, config_param, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index]);
+         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], config_param);
          break;
 #endif
      }

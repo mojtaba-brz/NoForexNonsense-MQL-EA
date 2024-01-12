@@ -47,19 +47,19 @@ int CNoForexNonesenseEA::get_baseline_indicator_handle()
 
 #ifdef __MQL4__
       case BI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE, shift);
+         temp_var = iMA(symbol, ea_timeframe, baseline_config_parameter, 0, MODE_SMA, PRICE_CLOSE, shift);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx], line_index, shift);
+         temp_var = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx], line_index, shift, baseline_config_parameter);
          break;
 #else
       case BI_SMA:
-         temp_var = iMA(symbol, ea_timeframe, 14, 0, MODE_SMA, PRICE_CLOSE);
+         temp_var = iMA(symbol, ea_timeframe, baseline_config_parameter, 0, MODE_SMA, PRICE_CLOSE);
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx]);
+         temp_var = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx], baseline_config_parameter);
          break;
 #endif
 
