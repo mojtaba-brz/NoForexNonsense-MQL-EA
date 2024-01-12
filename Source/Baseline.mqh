@@ -51,7 +51,7 @@ int CNoForexNonesenseEA::get_baseline_indicator_handle()
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx], line_index, shift, baseline_config_parameter);
+         temp_var = iCustom(symbol, ea_timeframe, BaselineIndicatorAddresses[base_line_indicator_idx], baseline_config_parameter, line_index, shift);
          break;
 #else
       case BI_SMA:

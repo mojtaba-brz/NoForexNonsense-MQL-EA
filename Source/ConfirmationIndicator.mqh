@@ -87,7 +87,7 @@ int CNoForexNonesenseEA::get_confirmation_indicators_handle(int indicator_index 
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], line_index,shift, config_param);
+         temp_var = iCustom(symbol, ea_timeframe, ConfirmationIndicatorAddresses[indicator_index], config_param, line_index, shift);
          break;
 #else
       case CI_AO:

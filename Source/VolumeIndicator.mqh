@@ -21,7 +21,7 @@ int CNoForexNonesenseEA::get_volume_indicator_handle()
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx], line_index, shift, volume_config_parameter);
+         temp_var = iCustom(symbol, ea_timeframe, VolumeIndicatorAddresses[volume_indicator_idx], volume_config_parameter, line_index, shift);
          break;
 #else
       case VI_SMA:

@@ -65,7 +65,7 @@ int CNoForexNonesenseEA::get_exit_indicator_handle()
          break;
 
       default:
-         temp_var = iCustom(symbol, ea_timeframe, ExitIndicatorAddresses[volume_indicator_idx], line_index, shift, exit_config_parameter);
+         temp_var = iCustom(symbol, ea_timeframe, ExitIndicatorAddresses[volume_indicator_idx], exit_config_parameter, line_index, shift);
          break;
 #else
       case EI_SMA:
