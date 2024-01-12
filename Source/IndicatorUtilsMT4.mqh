@@ -13,11 +13,11 @@ double CNoForexNonesenseEA::get_indicator_value(int indicator_type, int shift = 
         break;
 
     case I_TYPE_CONFIRMATION:
-        return get_confirmation_indicator_value_mt4(first_confirmation_indicator_idx, shift, line_index);
+        return get_confirmation_indicator_value_mt4(first_confirmation_indicator_idx, shift, line_index, first_confirmation_config_parameter);
         break;
 
     case I_TYPE_2ND_CONFIRMATION:
-        return get_confirmation_indicator_value_mt4(second_confirmation_indicator_idx, shift, line_index);
+        return get_confirmation_indicator_value_mt4(second_confirmation_indicator_idx, shift, line_index, second_confirmation_config_parameter);
         break;
 
     case I_TYPE_VOLUME:
