@@ -1,6 +1,6 @@
 string ConfirmationIndicatorAddresses[] = { 
 #ifdef __MQL5__ 
-"T3_MA", 
+"T3 MA", 
 "Schaff Trend Cycle", 
 "FractalTrendID", 
 "absolutestrength_v2", 
@@ -153,7 +153,7 @@ string VolumeIndicatorAddresses[] = {
  
 string ExitIndicatorAddresses[] = { 
 #ifdef __MQL5__ 
-"T3_MA", 
+"T3 MA", 
 "Schaff Trend Cycle", 
 "FractalTrendID", 
 "absolutestrength_v2", 

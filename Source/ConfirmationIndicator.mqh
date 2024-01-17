@@ -17,7 +17,7 @@ void CNoForexNonesenseEA::determine_first_confirmation_indicator_entry_signal()
    int signal_index;
    double last_close, close_at_signal_index, last_atr_value;
    get_first_confirmation_indicator_current_signal_and_its_index(signal, signal_index);
-   if(use_one_candle_rule)
+   if(use_one_candle_rule && signal_index < 2)
      {
       last_atr_value = get_indicator_value(atr_indicator_handle, 1);
       last_close = iClose(symbol, ea_timeframe, 1);
@@ -179,7 +179,7 @@ void CNoForexNonesenseEA::get_first_confirmation_indicator_current_signal_and_it
    index = 1;
    if(current_signal == CI_NO_SIGNAL || current_signal == CI_NO_INDICATOR_SIGNAL)
       return;
-   while(pre_signal == current_signal)
+   while(pre_signal == current_signal && index < 3)
      {
       index++;
       pre_signal = get_first_confirmation_indicator_signal(index);

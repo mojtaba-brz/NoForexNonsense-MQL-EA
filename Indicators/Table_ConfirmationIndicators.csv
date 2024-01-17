@@ -4,7 +4,7 @@
 // enum_name,  indicator name,   signal_type(ZERO_CROSS, SLOPE_CHANGE, TWO_LINE_CROSS, CLOSE_PRICE_CROSS)
 
 MQL5, , =========================================================================================================================
-T3_MA, "T3_MA", CLOSE_PRICE_CROSS
+T3_MA, "T3 MA", CLOSE_PRICE_CROSS
 SchaffTrendCycle, "Schaff Trend Cycle", SLOPE_CHANGE
 FractalTrendID, "FractalTrendID", ZERO_CROSS
 ASI_V2, "absolutestrength_v2", TWO_LINE_CROSS
